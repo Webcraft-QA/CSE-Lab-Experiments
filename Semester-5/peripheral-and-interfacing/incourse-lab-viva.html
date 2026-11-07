@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Prepare for the Peripheral and Interfacing lab viva with 300 questions and answers, experiment explanations, machine codes, and revision tables.">
+
+    <meta name="color-scheme" content="light">
+
+    <title>PI Lab Viva Preparation | Semester 5</title>
+
+    <style>
+        :root {
+            --bg: #f5f7fb;
+            --surface: #ffffff;
+            --text: #172033;
+            --muted: #526176;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --border: #e2e8f0;
+            --radius: 14px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-underline-offset: 3px;
+        }
+
+        a:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 4px;
+        }
+
+        .container {
+            width: min(100% - 32px, 1000px);
+            margin-inline: auto;
+        }
+
+        .site-header {
+            padding-block: 20px;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .brand {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        main {
+            padding-block: 48px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #dbeafe;
+            color: #1d4ed8;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        h1 {
+            max-width: 760px;
+            margin: 18px 0;
+            font-size: clamp(30px, 5vw, 46px);
+            line-height: 1.15;
+            letter-spacing: -0.025em;
+        }
+
+        .description {
+            max-width: 680px;
+            margin: 0 0 24px;
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 0 0 28px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .highlights li {
+            padding: 5px 10px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 48px;
+            padding: 12px 20px;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border-color: var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: #eef2f7;
+        }
+
+        .study-note {
+            margin-bottom: 32px;
+            padding: 16px 20px;
+            background: #eff6ff;
+            border-left: 4px solid var(--primary);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .study-note h2 {
+            margin: 0 0 6px;
+            font-size: 16px;
+        }
+
+        .study-note p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .pdf-section {
+            overflow: hidden;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+
+        .pdf-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pdf-header h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .pdf-header span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .pdf-help {
+            margin: 0;
+            padding: 12px 22px;
+            background: #f8fafc;
+            border-bottom: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .pdf-viewer {
+            display: block;
+            width: 100%;
+            height: 75vh;
+            min-height: 500px;
+            max-height: 1000px;
+            border: 0;
+            background: #eef2f7;
+        }
+
+        .site-footer {
+            padding-block: 24px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .site-footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding-block: 32px;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .pdf-header,
+            .pdf-help {
+                padding-inline: 16px;
+            }
+
+            .pdf-viewer {
+                height: 65vh;
+                min-height: 400px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .btn {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <p class="brand">CSE Lab Experiments</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <span class="badge">Semester 5 · Lab Preparation</span>
+
+        <h1>Peripheral and Interfacing Viva Preparation</h1>
+
+        <p class="description">
+            Prepare with 300 viva questions and answers covering basic,
+            intermediate, and advanced topics. Review experiment explanations,
+            machine codes, outputs, flags, and practical troubleshooting.
+        </p>
+
+        <ul class="highlights" aria-label="Study guide contents">
+            <li>300 questions and answers</li>
+            <li>12 practical experiments</li>
+            <li>38-page study guide</li>
+            <li>Quick revision tables</li>
+        </ul>
+
+        <!-- Keep the PDF in the same folder as this HTML file. -->
+        <div class="actions">
+            <a href="./PI-Viva-Questions-Answers.pdf" class="btn btn-primary" download="PI-Viva-Questions-Answers.pdf">
+                <span aria-hidden="true">↓</span>
+                Download Viva PDF
+            </a>
+
+            <a href="./PI-Viva-Questions-Answers.pdf" class="btn btn-secondary" target="_blank"
+                rel="noopener noreferrer">
+                Open PDF in New Tab
+                <span aria-hidden="true">↗</span>
+            </a>
+        </div>
+
+        <aside class="study-note" aria-labelledby="study-note-title">
+            <h2 id="study-note-title">Where to start</h2>
+            <p>
+                Read the corrections on page 2 first. Then study sections 02–09
+                for the experiments and section 10 for troubleshooting.
+                Use Appendices A and B for quick revision.
+            </p>
+        </aside>
+
+        <section class="pdf-section" aria-labelledby="pdf-heading">
+            <div class="pdf-header">
+                <h2 id="pdf-heading">Viva Questions &amp; Answers</h2>
+                <span>PDF · 38 pages</span>
+            </div>
+
+            <p class="pdf-help" id="pdf-help">
+                If the preview does not appear,
+                <a href="./PI-Viva-Questions-Answers.pdf" target="_blank" rel="noopener noreferrer">open the PDF in a
+                    new tab</a>
+                or use the download button above.
+            </p>
+
+            <iframe class="pdf-viewer" src="./PI-Viva-Questions-Answers.pdf#view=FitH"
+                title="Peripheral and Interfacing viva study guide" aria-describedby="pdf-help"></iframe>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>CSE Lab Experiments · Semester 5</p>
+        </div>
+    </footer>
+</body>
+
+</html>

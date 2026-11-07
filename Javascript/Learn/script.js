@@ -39,6 +39,17 @@ console.log("b-- =", b--); //Post-decrement
 
 
 //Conditional Statements
+let age = 16;
+
+if (age >= 18){
+    console.log("You can vote");
+}
+
+if(age < 18){
+    console.log("You CANNOT vote");
+}
+
+
 console.log("Condition:");
 let mode = "dark";
 let color;
