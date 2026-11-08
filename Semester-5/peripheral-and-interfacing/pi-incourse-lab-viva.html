@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-        content="Prepare for the Peripheral and Interfacing lab viva with 300 questions and answers, experiment explanations, machine codes, and revision tables.">
+        content="Peripheral and Interfacing viva preparation with 300 questions and answers, 12 practical experiments, machine codes, and revision tables.">
 
     <meta name="color-scheme" content="light">
 
@@ -14,7 +14,7 @@
 
     <style>
         :root {
-            --bg: #f5f7fb;
+            --background: #f5f7fb;
             --surface: #ffffff;
             --text: #172033;
             --muted: #526176;
@@ -32,9 +32,9 @@
 
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--bg);
+            background: var(--background);
             color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
         }
 
@@ -53,20 +53,54 @@
             margin-inline: auto;
         }
 
+        .skip-link {
+            position: absolute;
+            top: -80px;
+            left: 16px;
+            z-index: 10;
+            padding: 10px 16px;
+            background: var(--primary);
+            color: #ffffff;
+            border-radius: 8px;
+        }
+
+        .skip-link:focus {
+            top: 16px;
+        }
+
         .site-header {
-            padding-block: 20px;
+            padding-block: 18px;
             background: var(--surface);
             border-bottom: 1px solid var(--border);
         }
 
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
         .brand {
-            margin: 0;
+            color: var(--text);
             font-size: 18px;
             font-weight: 700;
+            text-decoration: none;
+        }
+
+        .back-link {
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
         }
 
         main {
-            padding-block: 48px;
+            padding-block: 44px;
         }
 
         .badge {
@@ -88,7 +122,7 @@
         }
 
         .description {
-            max-width: 680px;
+            max-width: 700px;
             margin: 0 0 24px;
             color: var(--muted);
             font-size: 16px;
@@ -104,7 +138,7 @@
         }
 
         .highlights li {
-            padding: 5px 10px;
+            padding: 6px 11px;
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 6px;
@@ -116,7 +150,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .btn {
@@ -132,7 +166,7 @@
             font-weight: 700;
             text-align: center;
             text-decoration: none;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s ease;
         }
 
         .btn-primary {
@@ -156,7 +190,7 @@
 
         .study-note {
             margin-bottom: 32px;
-            padding: 16px 20px;
+            padding: 18px 20px;
             background: #eff6ff;
             border-left: 4px solid var(--primary);
             border-radius: 0 8px 8px 0;
@@ -195,7 +229,7 @@
             font-size: 18px;
         }
 
-        .pdf-header span {
+        .pdf-meta {
             color: var(--muted);
             font-size: 13px;
         }
@@ -212,9 +246,9 @@
         .pdf-viewer {
             display: block;
             width: 100%;
-            height: 75vh;
+            height: 78vh;
             min-height: 500px;
-            max-height: 1000px;
+            max-height: 1100px;
             border: 0;
             background: #eef2f7;
         }
@@ -233,7 +267,15 @@
 
         @media (max-width: 600px) {
             main {
-                padding-block: 32px;
+                padding-block: 30px;
+            }
+
+            .brand {
+                font-size: 16px;
+            }
+
+            .back-link {
+                font-size: 13px;
             }
 
             .actions {
@@ -242,6 +284,10 @@
 
             .btn {
                 width: 100%;
+            }
+
+            .study-note {
+                padding: 16px;
             }
 
             .pdf-header,
@@ -264,13 +310,24 @@
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">
+        Skip to content
+    </a>
+
     <header class="site-header">
-        <div class="container">
-            <p class="brand">CSE Lab Experiments</p>
+        <div class="container header-content">
+            <a href="../../index.html" class="brand">
+                CSE Lab Experiments
+            </a>
+
+            <a href="../../index.html" class="back-link">
+                <span aria-hidden="true">←</span>
+                Back to dashboard
+            </a>
         </div>
     </header>
 
-    <main class="container">
+    <main id="main-content" class="container" tabindex="-1">
         <span class="badge">Semester 5 · Lab Preparation</span>
 
         <h1>Peripheral and Interfacing Viva Preparation</h1>
@@ -288,15 +345,21 @@
             <li>Quick revision tables</li>
         </ul>
 
-        <!-- Keep the PDF in the same folder as this HTML file. -->
+        <!--
+      Required PDF filename: PI-Viva-Questions-Answers.pdf
+
+      Keep the PDF in the same folder as this HTML file:
+      Semester-5/peripheral-and-interfacing/
+    -->
         <div class="actions">
-            <a href="./PI-Viva-Questions-Answers.pdf" class="btn btn-primary" download="PI-Viva-Questions-Answers.pdf">
+            <a href="./PI-Viva-Questions-Answers.pdf" class="btn btn-primary" download="PI-Viva-Questions-Answers.pdf"
+                type="application/pdf">
                 <span aria-hidden="true">↓</span>
                 Download Viva PDF
             </a>
 
             <a href="./PI-Viva-Questions-Answers.pdf" class="btn btn-secondary" target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer" type="application/pdf">
                 Open PDF in New Tab
                 <span aria-hidden="true">↗</span>
             </a>
@@ -304,9 +367,10 @@
 
         <aside class="study-note" aria-labelledby="study-note-title">
             <h2 id="study-note-title">Where to start</h2>
+
             <p>
-                Read the corrections on page 2 first. Then study sections 02–09
-                for the experiments and section 10 for troubleshooting.
+                Read the corrections on page 2 first. Then study sections
+                02–09 for the experiments and section 10 for troubleshooting.
                 Use Appendices A and B for quick revision.
             </p>
         </aside>
@@ -314,14 +378,14 @@
         <section class="pdf-section" aria-labelledby="pdf-heading">
             <div class="pdf-header">
                 <h2 id="pdf-heading">Viva Questions &amp; Answers</h2>
-                <span>PDF · 38 pages</span>
+                <span class="pdf-meta">PDF · 38 pages</span>
             </div>
 
             <p class="pdf-help" id="pdf-help">
-                If the preview does not appear,
+                If your browser does not display the preview,
                 <a href="./PI-Viva-Questions-Answers.pdf" target="_blank" rel="noopener noreferrer">open the PDF in a
                     new tab</a>
-                or use the download button above.
+                or download it using the button above.
             </p>
 
             <iframe class="pdf-viewer" src="./PI-Viva-Questions-Answers.pdf#view=FitH"
