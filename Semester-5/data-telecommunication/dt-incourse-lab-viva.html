@@ -2,13 +2,3317 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Data and Telecommunication practical viva preparation: 300 questions and answers, ten practical topics, worked examples and a downloadable study guide.">
+  <meta name="color-scheme" content="light">
+  <title>DT Lab Viva Preparation | Semester 5</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: #fff;
+      --text: #172033;
+      --muted: #526176;
+      --primary: #2563eb;
+      --hover: #1d4ed8;
+      --border: #dde5ef;
+      --radius: 14px
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65
+    }
+
+    a {
+      color: var(--primary);
+      text-underline-offset: 3px
+    }
+
+    button,
+    input,
+    select {
+      font: inherit
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 4px
+    }
+
+    [hidden] {
+      display: none !important
+    }
+
+    .container {
+      width: min(100% - 36px, 1080px);
+      margin-inline: auto
+    }
+
+    .skip {
+      position: absolute;
+      left: 12px;
+      top: -100px;
+      background: white;
+      padding: 10px;
+      z-index: 5
+    }
+
+    .skip:focus {
+      top: 10px
+    }
+
+    .site-header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0
+    }
+
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap
+    }
+
+    .brand {
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none
+    }
+
+    .back {
+      font-size: 14px
+    }
+
+    main {
+      padding: 48px 0
+    }
+
+    .eyebrow {
+      display: inline-block;
+      border-radius: 30px;
+      padding: 5px 12px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-size: 13px;
+      font-weight: 700
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.12;
+      letter-spacing: -.035em;
+      max-width: 850px;
+      margin: 18px 0
+    }
+
+    h2 {
+      font-size: 24px;
+      line-height: 1.3;
+      margin: 0 0 12px
+    }
+
+    h3 {
+      font-size: 18px;
+      line-height: 1.4
+    }
+
+    .description {
+      max-width: 770px;
+      color: var(--muted);
+      margin: 0 0 24px;
+      font-size: 17px
+    }
+
+    .highlights {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 0 0 26px
+    }
+
+    .highlights li {
+      font-size: 13px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 10px
+    }
+
+    .actions,
+    .tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .actions {
+      margin-bottom: 28px
+    }
+
+    .btn {
+      min-height: 46px;
+      padding: 10px 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer
+    }
+
+    .btn:hover {
+      background: #eef2f7
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary)
+    }
+
+    .btn-primary:hover {
+      background: var(--hover)
+    }
+
+    .note {
+      padding: 20px 22px;
+      background: #eff6ff;
+      border-left: 4px solid var(--primary);
+      border-radius: 0 10px 10px 0;
+      margin-bottom: 32px
+    }
+
+    .note h2 {
+      font-size: 18px
+    }
+
+    .note p {
+      margin: 6px 0;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .section {
+      margin-top: 40px
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin: 0 0 20px
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px
+    }
+
+    .card h3 {
+      margin: 0 0 8px
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0
+    }
+
+    .card a {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 12px
+    }
+
+    .corrections {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 22px
+    }
+
+    .corrections summary {
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer
+    }
+
+    .corrections li {
+      margin: 10px 0;
+      font-size: 14px
+    }
+
+    .filters {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0
+    }
+
+    .filter-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr;
+      gap: 14px
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px
+    }
+
+    input,
+    select {
+      min-height: 46px;
+      width: 100%;
+      border: 1px solid #bdc9d8;
+      border-radius: 7px;
+      background: white;
+      color: var(--text);
+      padding: 10px 12px
+    }
+
+    input {
+      min-width: 0
+    }
+
+    .tools {
+      margin-top: 16px;
+      align-items: center
+    }
+
+    .count {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 0 auto
+    }
+
+    .question-group {
+      margin: 28px 0
+    }
+
+    .question-group>h3 {
+      margin: 0 0 12px;
+      color: #24445e
+    }
+
+    .question {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin: 8px 0;
+      overflow: clip
+    }
+
+    .question summary {
+      padding: 16px 18px;
+      cursor: pointer;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-weight: 700;
+      list-style: none
+    }
+
+    .question summary::-webkit-details-marker {
+      display: none
+    }
+
+    .question summary::after {
+      content: '+';
+      margin-left: auto;
+      flex-shrink: 0;
+      color: var(--primary);
+      font-size: 21px;
+      line-height: 1.2
+    }
+
+    .question[open] summary::after {
+      content: '−'
+    }
+
+    .q-number {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: .03em;
+      color: var(--muted);
+      padding-top: 3px
+    }
+
+    .level {
+      display: block;
+      width: max-content;
+      font-size: 11px;
+      line-height: 1.4;
+      padding: 3px 7px;
+      border-radius: 4px;
+      font-weight: 400;
+      margin-top: 7px
+    }
+
+    .basic {
+      background: #e8f5ee;
+      color: #17663c
+    }
+
+    .intermediate {
+      background: #eaf1ff;
+      color: #2359a4
+    }
+
+    .expert {
+      background: #fff0e1;
+      color: #95450a
+    }
+
+    .answer {
+      padding: 0 20px 18px 56px;
+      color: #35465b;
+      font-size: 15px
+    }
+
+    .answer p {
+      margin: 0;
+      max-width: 85ch
+    }
+
+    .empty {
+      background: white;
+      border: 1px dashed #bdc9d8;
+      padding: 24px;
+      text-align: center;
+      border-radius: 10px;
+      color: var(--muted)
+    }
+
+    .pdf-box {
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden
+    }
+
+    .pdf-box>summary {
+      cursor: pointer;
+      padding: 20px 22px;
+      font-size: 18px;
+      font-weight: 700
+    }
+
+    .pdf-help {
+      margin: 0;
+      padding: 12px 22px;
+      background: #f8fafc;
+      border-block: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--muted)
+    }
+
+    .pdf-viewer {
+      display: block;
+      width: 100%;
+      height: 75vh;
+      min-height: 480px;
+      border: 0;
+      background: #eef2f7
+    }
+
+    .footer {
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .footer .container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px
+    }
+
+    .source-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 22px 0
+    }
+
+    .noscript {
+      padding: 12px;
+      background: #fff0e1;
+      border-radius: 8px
+    }
+
+    .filter-hint {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 18px
+    }
+
+    @media(max-width:700px) {
+      main {
+        padding-top: 30px
+      }
+
+      .filter-grid,
+      .grid {
+        grid-template-columns: 1fr
+      }
+
+      .count {
+        width: 100%;
+        margin: 0
+      }
+
+      .actions .btn {
+        flex: 1 1 220px
+      }
+
+      .question summary {
+        padding: 14px 12px;
+        gap: 10px
+      }
+
+      .answer {
+        padding: 0 14px 16px
+      }
+
+      .pdf-viewer {
+        min-height: 400px;
+        height: 65vh
+      }
+
+      .header-row {
+        gap: 6px
+      }
+
+      .section {
+        margin-top: 30px
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto
+      }
+    }
+
+    @media print {
+      body {
+        background: white
+      }
+
+      .site-header,
+      .actions,
+      .filters,
+      .pdf-box,
+      .back,
+      .skip,
+      .footer,
+      .filter-hint {
+        display: none !important
+      }
+
+      .container {
+        width: 100%
+      }
+
+      main {
+        padding: 0
+      }
+
+      h1 {
+        font-size: 28px
+      }
+
+      .question {
+        break-inside: avoid
+      }
+
+      .question summary::after {
+        display: none
+      }
+
+      .answer {
+        padding-left: 18px
+      }
+
+      .question-group {
+        margin-top: 20px
+      }
+
+      .level {
+        color: black;
+        background: none
+      }
+
+      .note {
+        border-color: #444;
+        background: white
+      }
+    }
+  </style>
 </head>
 
 <body>
-
+  <a class="skip" href="#main">Skip to study materials</a>
+  <header class="site-header">
+    <div class="container header-row"><a class="brand" href="../../index.html">CSE Lab Experiments</a><a class="back"
+        href="../../index.html">← Back to dashboard</a></div>
+  </header>
+  <main class="container" id="main">
+    <span class="eyebrow">Semester 5 · Practical viva</span>
+    <h1>Data and Telecommunication<br>Viva Preparation</h1>
+    <p class="description">Study the experiment first, then practise explaining it. Review 300 questions and answers,
+      worked calculations and practical checks for your upcoming viva.</p>
+    <ul class="highlights" aria-label="Study guide contents">
+      <li>300 questions &amp; answers</li>
+      <li>10 practical topics</li>
+      <li>100 basic · 140 intermediate · 60 expert</li>
+      <li>48-page PDF</li>
+    </ul>
+    <!-- Keep this PDF beside this HTML file. Filenames are case-sensitive on hosting. -->
+    <div class="actions"><a class="btn btn-primary" href="./DT-Viva-Questions-Answers.pdf"
+        download="DT-Viva-Questions-Answers.pdf">↓ Download Viva PDF</a><a class="btn"
+        href="./DT-Viva-Questions-Answers.pdf" target="_blank" rel="noopener noreferrer">Open PDF in new tab ↗</a><a
+        class="btn" href="#question-bank">Study questions online</a></div>
+    <aside class="note" aria-labelledby="start-title">
+      <h2 id="start-title">Where to start tonight</h2>
+      <p>Read the PDF corrections first, then the ten practical cards. Prioritise ASK, FSK, BPSK, MUX/DEMUX, Hamming
+        encoding and correction, serial communication and topology testing.</p>
+      <p>The notebooks differ: one includes network topologies; the other includes null modem. This pack covers both.
+        Practice the aim, components, principle, expected output and one fault for every experiment.</p>
+    </aside>
+    <section class="section" aria-labelledby="practical-heading">
+      <h2 id="practical-heading">Your practical checklist</h2>
+      <p class="section-intro">The PDF includes a full preparation card for each topic. Use these links to jump to its
+        questions.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>01 / ASK generation</h3>
+          <p>Explain carrier bursts, the switching circuit and how amplitude follows binary data.</p><a
+            href="#topic-03">Study ASK questions →</a>
+        </div>
+        <div class="card">
+          <h3>02 / FSK generation</h3>
+          <p>Verify two different frequencies, their bit mapping and complementary selection.</p><a
+            href="#topic-04">Study FSK questions →</a>
+        </div>
+        <div class="card">
+          <h3>03 / BPSK generation</h3>
+          <p>Show a 180° phase difference using the carrier reference and binary control.</p><a href="#topic-05">Study
+            BPSK questions →</a>
+        </div>
+        <div class="card">
+          <h3>04 / 4-to-1 multiplexer</h3>
+          <p>Derive the equation and test all four select combinations.</p><a href="#topic-06">Study MUX questions →</a>
+        </div>
+        <div class="card">
+          <h3>05 / 1-to-4 demultiplexer</h3>
+          <p>Route the data input to the selected output and test both data states.</p><a href="#topic-07">Study DEMUX
+            questions →</a>
+        </div>
+        <div class="card">
+          <h3>06 / Hamming encoder</h3>
+          <p>Place parity bits, compute XOR checks and encode 1011 with a stated bit order.</p><a href="#topic-08">Study
+            encoding questions →</a>
+        </div>
+        <div class="card">
+          <h3>07 / Error detection &amp; correction</h3>
+          <p>Inject one error, calculate its syndrome and explain the double-error limitation.</p><a
+            href="#topic-09">Study correction questions →</a>
+        </div>
+        <div class="card">
+          <h3>08 / RS-232 communication</h3>
+          <p>Trace MAX232 signal paths, match serial settings and verify received characters.</p><a
+            href="#topic-10">Study RS-232 questions →</a>
+        </div>
+        <div class="card">
+          <h3>09 / Null modem</h3>
+          <p>Cross transmit/receive paths and prove communication in both directions.</p><a href="#topic-11">Study
+            null-modem questions →</a>
+        </div>
+        <div class="card">
+          <h3>10 / Network topologies</h3>
+          <p>Configure a small subnet, use ping and explain loop prevention.</p><a href="#topic-12">Study topology
+            questions →</a>
+        </div>
+      </div>
+    </section>
+    <section class="section" aria-label="Important corrections">
+      <details class="corrections">
+        <summary>Read these corrections before memorising the notes</summary>
+        <ul>
+          <li>FSK needs two distinct carrier frequencies; the repeated value in one procedure is not a valid two-tone
+            setup.</li>
+          <li>74LS04 is an inverter, CD4016 is a bilateral switch, 74LS138 is a decoder, and LF398 is a sample-and-hold
+            IC.</li>
+          <li>Ordinary Hamming(7,4) can miscorrect two errors. Extended Hamming adds overall parity for single-error
+            correction and double-error detection.</li>
+          <li>MAX232 converts voltage levels. It is not a UART, and local echo does not prove serial communication
+            worked.</li>
+          <li>A chain or ring of Ethernet switches does not automatically implement a shared bus or token ring.</li>
+          <li>SNR is a dimensionless power ratio. Use linear SNR in Shannon capacity and keep bit/s separate from
+            kbit/s.</li>
+        </ul>
+        <p class="source-note">See PDF pages 3–4 for the complete corrections and scope limits. Circuit-specific wiring
+          must match the demonstrated simulator schematic.</p>
+      </details>
+    </section>
+    <section class="section" aria-labelledby="question-bank">
+      <h2 id="question-bank">300 viva questions &amp; answers</h2>
+      <p class="section-intro">Answer aloud before opening each explanation. Search the questions and answers, or filter
+        by topic and level.</p>
+      <noscript>
+        <p class="noscript">All questions are available below without JavaScript. Search and filters need JavaScript;
+          your browser’s Find command also works.</p>
+      </noscript>
+      <div class="filters" id="filter-panel" hidden>
+        <div class="filter-grid">
+          <div><label for="search">Search</label><input id="search" type="search"
+              placeholder="Try Hamming, phase, baud, subnet…" autocomplete="off" aria-controls="question-list"></div>
+          <div><label for="level">Difficulty</label><select id="level">
+              <option value="">All levels</option>
+              <option>Basic</option>
+              <option>Intermediate</option>
+              <option>Expert</option>
+            </select></div>
+          <div><label for="topic">Topic</label><select id="topic">
+              <option value="">All topics</option>
+              <option value="01">Communication fundamentals</option>
+              <option value="02">Signals, noise and channel capacity</option>
+              <option value="03">Practical: ASK generation</option>
+              <option value="04">Practical: FSK generation</option>
+              <option value="05">Practical: BPSK generation</option>
+              <option value="06">Practical: 4-to-1 multiplexer</option>
+              <option value="07">Practical: 1-to-4 demultiplexer</option>
+              <option value="08">Practical: Hamming-code generation</option>
+              <option value="09">Practical: Hamming error detection and correction</option>
+              <option value="10">Practical: RS-232 serial communication</option>
+              <option value="11">Practical: null-modem communication</option>
+              <option value="12">Practical: network topologies</option>
+              <option value="13">IP addressing and subnetting</option>
+              <option value="14">OSI, TCP/IP and network devices</option>
+              <option value="15">Transmission media and impairments</option>
+              <option value="16">Line coding and scrambling</option>
+              <option value="17">Sampling, PCM and delta modulation</option>
+              <option value="18">Multiplexing and transmission timing</option>
+              <option value="19">Error control, flow control, ARQ and HDLC</option>
+              <option value="20">Switching, legacy networks and expert synthesis</option>
+            </select></div>
+        </div>
+        <div class="tools"><button class="btn" id="expand" type="button">Show visible answers</button><button
+            class="btn" id="collapse" type="button">Hide answers</button><button class="btn" id="reset"
+            type="button">Reset filters</button>
+          <p id="count" class="count" role="status" aria-live="polite" aria-atomic="true">Showing 300 of 300 questions
+          </p>
+        </div>
+      </div>
+      <p class="filter-hint">For a complete printable guide with practical cards, tables and diagrams, use the PDF
+        download above.</p>
+      <div id="question-list">
+        <section class="question-group" data-group="01" aria-labelledby="topic-01">
+          <h3 id="topic-01">01 / Communication fundamentals</h3>
+          <details class="question" data-section="01" data-level="Basic" id="q1">
+            <summary><span class="q-number">001</span><span>What is data communication?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>It is the exchange of data between devices through a transmission medium using agreed rules. A working
+                system needs a sender, receiver, message, medium and protocol.</p>
+            </div>
+          </details>
+          <details class="question" data-section="01" data-level="Basic" id="q2">
+            <summary><span class="q-number">002</span><span>What is telecommunication?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Communication over a distance using electrical, electromagnetic or optical signals. Data communication
+                focuses on exchanging represented information; telecommunication also includes voice and video services.
+              </p>
+            </div>
+          </details>
+          <details class="question" data-section="01" data-level="Basic" id="q3">
+            <summary><span class="q-number">003</span><span>What makes communication effective?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Correct delivery, accuracy, timely arrival and acceptable jitter. A perfectly received voice packet can
+                still be useless if it arrives too late for playback.</p>
+            </div>
+          </details>
+          <details class="question" data-section="01" data-level="Basic" id="q4">
+            <summary><span class="q-number">004</span><span>What is a protocol?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A set of communication rules covering syntax, semantics and timing: how a message is formatted, what
+                its fields mean, and when or how fast it is sent.</p>
+            </div>
+          </details>
+          <details class="question" data-section="01" data-level="Basic" id="q5">
+            <summary><span class="q-number">005</span><span>What is the difference between data and a signal?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Data is the information; a signal is its physical representation. The same binary data can be
+                represented by voltage pulses, optical pulses or a modulated radio carrier.</p>
+            </div>
+          </details>
+          <details class="question" data-section="01" data-level="Intermediate" id="q6">
+            <summary><span class="q-number">006</span><span>Distinguish analog and digital signals.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>An analog signal varies continuously over its allowed values; a digital representation uses discrete
+                states. Real digital waveforms still have finite rise time, noise and analog electrical behavior.</p>
+            </div>
+          </details>
+          <details class="question" data-section="01" data-level="Intermediate" id="q7">
+            <summary><span class="q-number">007</span><span>Explain simplex, half-duplex and full-duplex.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Simplex sends in one direction, half-duplex permits both directions at different times, and full-duplex
+                permits simultaneous two-way communication. Broadcast reception, a walkie-talkie and a telephone
+                conversation are examples.</p>
+            </div>
+          </details>
+          <details class="question" data-section="01" data-level="Intermediate" id="q8">
+            <summary><span class="q-number">008</span><span>Are serial and simplex the same?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>No. Serial means bits are sent sequentially on a channel. Separate transmit and receive paths can make
+                a serial connection full-duplex.</p>
+            </div>
+          </details>
+          <details class="question" data-section="01" data-level="Intermediate" id="q9">
+            <summary><span class="q-number">009</span><span>Distinguish bit rate and baud rate.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Bit rate counts bits per second; baud counts symbols per second. For fixed-length mapping with M
+                distinct symbols, each symbol represents log2(M) bits, so gross bit rate equals symbol rate times
+                log2(M).</p>
+            </div>
+          </details>
+          <details class="question" data-section="01" data-level="Intermediate" id="q10">
+            <summary><span class="q-number">010</span><span>What are bandwidth, throughput and goodput?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Bandwidth may mean a frequency range in hertz or an informal link capacity in bit/s. Throughput is
+                achieved transfer rate; goodput counts useful application data after overhead and retransmissions.</p>
+            </div>
+          </details>
+          <details class="question" data-section="01" data-level="Intermediate" id="q11">
+            <summary><span class="q-number">011</span><span>What is jitter?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Variation in packet delay or signal timing. A playback buffer can absorb some delay variation, but
+                increases latency and cannot recover data that misses its deadline.</p>
+            </div>
+          </details>
+          <details class="question" data-section="01" data-level="Intermediate" id="q12">
+            <summary><span class="q-number">012</span><span>What does the phrase &#x27;without coding&#x27; mean in
+                these practicals?<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>The experiments are built using circuit components and simulator instruments, rather than a program. It
+                does not mean that binary representation or error-control coding is absent: Hamming coding is explicitly
+                one experiment.</p>
+            </div>
+          </details>
+          <details class="question" data-section="01" data-level="Expert" id="q13">
+            <summary><span class="q-number">013</span><span>Can digital communication be completely noise-free?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>No. Receivers make decisions about noisy waveforms. Regeneration and error control improve reliability,
+                but sufficiently strong noise, timing errors or interference can still cause incorrect bits.</p>
+            </div>
+          </details>
+          <details class="question" data-section="01" data-level="Expert" id="q14">
+            <summary><span class="q-number">014</span><span>Why does higher bit rate sometimes reduce reliability?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>With unchanged power and channel conditions, shorter bit intervals may reduce energy per bit and
+                increase sensitivity to bandwidth limits and timing errors. Modulation, coding and receiver design
+                determine the actual tradeoff.</p>
+            </div>
+          </details>
+          <details class="question" data-section="01" data-level="Expert" id="q15">
+            <summary><span class="q-number">015</span><span>How should you explain an unfamiliar assigned circuit?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Identify the input information, carrier or clock, processing blocks, output and measurement points.
+                Then trace one simple input through it and state the observable test that would confirm its intended
+                behavior.</p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="02" aria-labelledby="topic-02">
+          <h3 id="topic-02">02 / Signals, noise and channel capacity</h3>
+          <details class="question" data-section="02" data-level="Basic" id="q16">
+            <summary><span class="q-number">016</span><span>What are amplitude, frequency and phase?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Amplitude describes signal magnitude, frequency describes cycles per second, and phase describes
+                position within a cycle relative to a reference. These are the carrier properties varied by ASK, FSK and
+                PSK.</p>
+            </div>
+          </details>
+          <details class="question" data-section="02" data-level="Basic" id="q17">
+            <summary><span class="q-number">017</span><span>What is the relation between frequency and period?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>T = 1/f. A 1 kHz sinusoid has period 1 ms. Measure one complete cycle between equivalent points, such
+                as two consecutive positive peaks.</p>
+            </div>
+          </details>
+          <details class="question" data-section="02" data-level="Basic" id="q18">
+            <summary><span class="q-number">018</span><span>What is attenuation?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Loss of signal power during transmission. Attenuation is often expressed in decibels; amplifiers or
+                repeaters may compensate for it, subject to noise and distortion limits.</p>
+            </div>
+          </details>
+          <details class="question" data-section="02" data-level="Basic" id="q19">
+            <summary><span class="q-number">019</span><span>What is distortion?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A change in waveform shape, for example when frequency components experience unequal attenuation or
+                delay. A signal may be distorted even when its average power remains adequate.</p>
+            </div>
+          </details>
+          <details class="question" data-section="02" data-level="Basic" id="q20">
+            <summary><span class="q-number">020</span><span>What is noise?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Unwanted energy that interferes with the desired signal. Common examples are thermal noise, impulse
+                noise, crosstalk and intermodulation noise.</p>
+            </div>
+          </details>
+          <details class="question" data-section="02" data-level="Intermediate" id="q21">
+            <summary><span class="q-number">021</span><span>How do you calculate SNR?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>SNR = signal power/noise power, a dimensionless ratio. SNR in dB = 10 log10(SNR). For 10 mW signal and
+                1 microW noise, the ratio is 10,000 and the result is 40 dB.</p>
+            </div>
+          </details>
+          <details class="question" data-section="02" data-level="Intermediate" id="q22">
+            <summary><span class="q-number">022</span><span>When may 20 log10 be used?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>For a voltage or current amplitude ratio when the impedances are equal, because power is proportional
+                to amplitude squared. For a power ratio use 10 log10.</p>
+            </div>
+          </details>
+          <details class="question" data-section="02" data-level="Intermediate" id="q23">
+            <summary><span class="q-number">023</span><span>State the Nyquist noiseless bit-rate relation.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>For an ideal noiseless low-pass channel of bandwidth B and M signal levels, maximum bit rate is 2B
+                log2(M). It assumes ideal pulse shaping; it is not a guarantee for a real noisy link.</p>
+            </div>
+          </details>
+          <details class="question" data-section="02" data-level="Intermediate" id="q24">
+            <summary><span class="q-number">024</span><span>State Shannon capacity.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>C = B log2(1 + SNR), with B in Hz and SNR as a linear power ratio. It gives a theoretical
+                reliable-information-rate limit for the stated band-limited Gaussian-noise model.</p>
+            </div>
+          </details>
+          <details class="question" data-section="02" data-level="Intermediate" id="q25">
+            <summary><span class="q-number">025</span><span>Find Nyquist rate for B = 3 kHz and four levels.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>2 x 3000 x log2(4) = 12,000 bit/s. Four levels represent two bits per symbol, and the ideal maximum
+                symbol rate is 6000 baud.</p>
+            </div>
+          </details>
+          <details class="question" data-section="02" data-level="Intermediate" id="q26">
+            <summary><span class="q-number">026</span><span>Find Shannon capacity for B = 1 MHz and SNR = 63.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>C = 10^6 x log2(64) = 6 Mbit/s. A practical design generally operates below this limit to achieve a
+                useful error rate with realizable coding.</p>
+            </div>
+          </details>
+          <details class="question" data-section="02" data-level="Intermediate" id="q27">
+            <summary><span class="q-number">027</span><span>Distinguish transmission and propagation delay.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Transmission delay is L/R for L bits at R bit/s. Propagation delay is distance/signal speed. Sending
+                more bits increases transmission time, while a longer cable increases propagation time.</p>
+            </div>
+          </details>
+          <details class="question" data-section="02" data-level="Expert" id="q28">
+            <summary><span class="q-number">028</span><span>Can increasing the number of signal levels beat Shannon
+                capacity?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>No. More levels increase the ideal bits per symbol, but make decisions more sensitive to noise. A
+                reliable system must respect the channel&#x27;s information capacity as well as implementation limits.
+              </p>
+            </div>
+          </details>
+          <details class="question" data-section="02" data-level="Expert" id="q29">
+            <summary><span class="q-number">029</span><span>What is wrong with a capacity result labelled 34,860 kbps
+                for a 3 kHz channel with SNR 3162?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>3000 x log2(3163) is about 34,881 bit/s, or 34.9 kbit/s. Multiplying hertz by a dimensionless logarithm
+                yields bit/s, not kbit/s; the handwritten/slide unit is misleading.</p>
+            </div>
+          </details>
+          <details class="question" data-section="02" data-level="Expert" id="q30">
+            <summary><span class="q-number">030</span><span>Why can a faster link still have high latency?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Increasing R reduces L/R but does not remove propagation, queueing or processing delay. A long-distance
+                lightly loaded link can be propagation-limited even at a very high bit rate.</p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="03" aria-labelledby="topic-03">
+          <h3 id="topic-03">03 / Practical: ASK generation</h3>
+          <details class="question" data-section="03" data-level="Basic" id="q31">
+            <summary><span class="q-number">031</span><span>What is ASK?<small class="level basic">Basic</small></span>
+            </summary>
+            <div class="answer">
+              <p>Amplitude Shift Keying represents digital symbols with different carrier amplitudes. In binary ASK
+                there are two amplitude states associated with the two binary values.</p>
+            </div>
+          </details>
+          <details class="question" data-section="03" data-level="Basic" id="q32">
+            <summary><span class="q-number">032</span><span>What is OOK?<small class="level basic">Basic</small></span>
+            </summary>
+            <div class="answer">
+              <p>On-Off Keying is binary ASK with one amplitude equal to zero. With the mapping used here, 1 sends a
+                carrier burst and 0 sends no carrier.</p>
+            </div>
+          </details>
+          <details class="question" data-section="03" data-level="Basic" id="q33">
+            <summary><span class="q-number">033</span><span>What is the aim of the ASK experiment?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Generate an amplitude-keyed waveform from a sine-wave carrier and a binary control signal, then verify
+                that the carrier appears or changes amplitude according to the data.</p>
+            </div>
+          </details>
+          <details class="question" data-section="03" data-level="Basic" id="q34">
+            <summary><span class="q-number">034</span><span>Which instruments are used?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>The notes show a sine generator, pulse/data generator, CD4016 switching circuit, inverter, resistors,
+                reference ground and oscilloscope. Confirm the supplied simulator schematic and component power
+                connections before running it.</p>
+            </div>
+          </details>
+          <details class="question" data-section="03" data-level="Basic" id="q35">
+            <summary><span class="q-number">035</span><span>Which carrier property ideally stays unchanged in binary
+                ASK?<small class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Carrier frequency stays unchanged. The binary data changes amplitude; the phase reference is normally
+                kept consistent across symbols when the source remains running.</p>
+            </div>
+          </details>
+          <details class="question" data-section="03" data-level="Intermediate" id="q36">
+            <summary><span class="q-number">036</span><span>Write an OOK expression.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>s(t) = A b(t) cos(2 pi fc t), where b(t) is 0 or 1. Thus s(t) is zero for a zero bit and a sinusoid of
+                amplitude A for a one bit.</p>
+            </div>
+          </details>
+          <details class="question" data-section="03" data-level="Intermediate" id="q37">
+            <summary><span class="q-number">037</span><span>What does the CD4016 do?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>It provides four independently controlled bilateral analog switches. A control signal can connect or
+                isolate a carrier path. It is not a four-input logic AND gate.</p>
+            </div>
+          </details>
+          <details class="question" data-section="03" data-level="Intermediate" id="q38">
+            <summary><span class="q-number">038</span><span>What does the 74LS04 do?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>It contains six digital inverters and can generate complementary control signals. It is not a single
+                transistor and is not a linear sine-wave amplifier.</p>
+            </div>
+          </details>
+          <details class="question" data-section="03" data-level="Intermediate" id="q39">
+            <summary><span class="q-number">039</span><span>How do you verify ASK on the oscilloscope?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Display the input data and output together. Trigger on a data edge and show several bit periods. With
+                the declared mapping, high data should coincide with carrier bursts and low data with the off state.</p>
+            </div>
+          </details>
+          <details class="question" data-section="03" data-level="Intermediate" id="q40">
+            <summary><span class="q-number">040</span><span>What test data is useful?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Begin with constant 0 and constant 1 to verify both states. Then use 1010 and a pattern with repeated
+                bits, such as 110010, to check symbol boundaries and sustained states.</p>
+            </div>
+          </details>
+          <details class="question" data-section="03" data-level="Intermediate" id="q41">
+            <summary><span class="q-number">041</span><span>Why should carrier frequency exceed data rate in a teaching
+                display?<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Several carrier cycles per bit make each burst easy to identify. This is a visibility choice for the
+                demonstration, not a universal specification for every modulation system.</p>
+            </div>
+          </details>
+          <details class="question" data-section="03" data-level="Intermediate" id="q42">
+            <summary><span class="q-number">042</span><span>Why might the output remain a sine wave continuously?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>The switch may be permanently enabled, both controls may have the same state, the probe may be on the
+                carrier instead of the output, or the binary generator may not be toggling.</p>
+            </div>
+          </details>
+          <details class="question" data-section="03" data-level="Expert" id="q43">
+            <summary><span class="q-number">043</span><span>Why is ASK vulnerable to amplitude noise?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>The receiver decides using amplitude. Noise, fading and gain variation can move the received amplitude
+                across the decision threshold, especially when the two levels are poorly separated.</p>
+            </div>
+          </details>
+          <details class="question" data-section="03" data-level="Expert" id="q44">
+            <summary><span class="q-number">044</span><span>Does an ideal OOK signal occupy just one frequency?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>No. Keying changes the envelope and creates sidebands. Rectangular abrupt symbols have a broad
+                spectrum; filtering or pulse shaping controls bandwidth and transition behavior.</p>
+            </div>
+          </details>
+          <details class="question" data-section="03" data-level="Expert" id="q45">
+            <summary><span class="q-number">045</span><span>Why can a CD4016 simulation fail when connected to a bipolar
+                sine source?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>The analog voltage must stay within the switch&#x27;s permitted supply range, and its control levels
+                must be valid. A negative signal with a ground-referenced single supply may violate those limits; verify
+                biasing, supplies and model compatibility.</p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="04" aria-labelledby="topic-04">
+          <h3 id="topic-04">04 / Practical: FSK generation</h3>
+          <details class="question" data-section="04" data-level="Basic" id="q46">
+            <summary><span class="q-number">046</span><span>What is FSK?<small class="level basic">Basic</small></span>
+            </summary>
+            <div class="answer">
+              <p>Frequency Shift Keying represents digital symbols by selecting different carrier frequencies. Binary
+                FSK uses two tones, one for each bit value.</p>
+            </div>
+          </details>
+          <details class="question" data-section="04" data-level="Basic" id="q47">
+            <summary><span class="q-number">047</span><span>What are mark and space frequencies?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>They are the tones assigned to binary 1 and binary 0 respectively. State your chosen mapping; the
+                higher frequency is not inherently required to represent 1.</p>
+            </div>
+          </details>
+          <details class="question" data-section="04" data-level="Basic" id="q48">
+            <summary><span class="q-number">048</span><span>What is the aim of the FSK experiment?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Use binary data to select between two distinct sine-wave frequencies and observe the change in cycle
+                spacing while keeping nominal amplitude similar.</p>
+            </div>
+          </details>
+          <details class="question" data-section="04" data-level="Basic" id="q49">
+            <summary><span class="q-number">049</span><span>What components appear in the notes?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Two sine generators, a pulse generator, CD4016 analog switching, complementary control using an
+                inverter, resistors and an oscilloscope.</p>
+            </div>
+          </details>
+          <details class="question" data-section="04" data-level="Basic" id="q50">
+            <summary><span class="q-number">050</span><span>How does an FSK trace differ from ASK?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>In FSK, cycle density changes between bits while nominal amplitude remains similar. In OOK, the carrier
+                is present or absent while its frequency during bursts stays the same.</p>
+            </div>
+          </details>
+          <details class="question" data-section="04" data-level="Intermediate" id="q51">
+            <summary><span class="q-number">051</span><span>Write the binary FSK signal rule.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>For bit 0 transmit A cos(2 pi f0 t + phi0); for bit 1 transmit A cos(2 pi f1 t + phi1), where f0
+                differs from f1. Phase continuity depends on the implementation.</p>
+            </div>
+          </details>
+          <details class="question" data-section="04" data-level="Intermediate" id="q52">
+            <summary><span class="q-number">052</span><span>How do two switches generate FSK?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>One branch passes tone f0 and the other passes tone f1. Complementary data controls select one branch
+                at a time so the output follows the intended tone.</p>
+            </div>
+          </details>
+          <details class="question" data-section="04" data-level="Intermediate" id="q53">
+            <summary><span class="q-number">053</span><span>What happens if both generators have the same
+                frequency?<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Frequency no longer distinguishes the symbols. Any observed phase or amplitude change would be a
+                switching artifact rather than the intended two-tone FSK behavior.</p>
+            </div>
+          </details>
+          <details class="question" data-section="04" data-level="Intermediate" id="q54">
+            <summary><span class="q-number">054</span><span>Give a clear illustrative setup.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Use f0 = 1 kHz, f1 = 2 kHz, equal amplitudes and a data rate of 100 bit/s. Each 10 ms bit then contains
+                10 or 20 cycles. These are practice values, not prescribed lab settings.</p>
+            </div>
+          </details>
+          <details class="question" data-section="04" data-level="Intermediate" id="q55">
+            <summary><span class="q-number">055</span><span>How do you measure the two output frequencies?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Hold the data at 0, measure output period T0, and calculate 1/T0. Repeat at 1 to obtain 1/T1. Then use
+                alternating data to verify switching between those measured tones.</p>
+            </div>
+          </details>
+          <details class="question" data-section="04" data-level="Intermediate" id="q56">
+            <summary><span class="q-number">056</span><span>Why are complementary controls needed?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>They prevent both carrier branches from being selected together in the intended logical operation.
+                Delay mismatch can still cause a brief overlap or gap in real switching hardware.</p>
+            </div>
+          </details>
+          <details class="question" data-section="04" data-level="Intermediate" id="q57">
+            <summary><span class="q-number">057</span><span>How can BFSK be demodulated?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>A receiver can compare energy in filters or correlators centered on f0 and f1. A suitable frequency
+                discriminator is another approach. The experiment generates the signal; demodulation is a follow-up
+                theory topic.</p>
+            </div>
+          </details>
+          <details class="question" data-section="04" data-level="Expert" id="q58">
+            <summary><span class="q-number">058</span><span>Is FSK automatically continuous-phase?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>No. Switching between independent oscillators can create phase jumps. Continuous-phase FSK uses a
+                phase-continuous oscillator or an equivalent construction, not arbitrary independent-tone switching.</p>
+            </div>
+          </details>
+          <details class="question" data-section="04" data-level="Expert" id="q59">
+            <summary><span class="q-number">059</span><span>What determines FSK bandwidth?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Tone separation, symbol rate, pulse shaping and the bandwidth measurement convention. There is no
+                single exact bandwidth formula for every FSK implementation.</p>
+            </div>
+          </details>
+          <details class="question" data-section="04" data-level="Expert" id="q60">
+            <summary><span class="q-number">060</span><span>Why does increasing tone separation have a tradeoff?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>It may make the tones easier to distinguish with a given receiver, but usually consumes more spectrum.
+                Required separation also depends on symbol duration and coherent or noncoherent detection.</p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="05" aria-labelledby="topic-05">
+          <h3 id="topic-05">05 / Practical: BPSK generation</h3>
+          <details class="question" data-section="05" data-level="Basic" id="q61">
+            <summary><span class="q-number">061</span><span>What is BPSK?<small class="level basic">Basic</small></span>
+            </summary>
+            <div class="answer">
+              <p>Binary Phase Shift Keying maps two bit values to carrier phases separated by 180 degrees. The nominal
+                carrier amplitude and frequency are unchanged.</p>
+            </div>
+          </details>
+          <details class="question" data-section="05" data-level="Basic" id="q62">
+            <summary><span class="q-number">062</span><span>What is another name for BPSK?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Two-phase PSK or phase-reversal keying. The two constellation points lie on opposite sides of the
+                origin.</p>
+            </div>
+          </details>
+          <details class="question" data-section="05" data-level="Basic" id="q63">
+            <summary><span class="q-number">063</span><span>How many bits does one BPSK symbol carry?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>One bit, since log2(2) = 1. Without added coding overhead, bit rate and symbol rate are equal.</p>
+            </div>
+          </details>
+          <details class="question" data-section="05" data-level="Basic" id="q64">
+            <summary><span class="q-number">064</span><span>What is the aim of the BPSK experiment?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Produce opposite-phase carrier states selected by binary data and verify the phase relation against a
+                reference carrier.</p>
+            </div>
+          </details>
+          <details class="question" data-section="05" data-level="Basic" id="q65">
+            <summary><span class="q-number">065</span><span>What is the role of a unity-gain inverting amplifier?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>It produces -v(t). For a sinusoid, multiplication by -1 is equivalent to a 180-degree phase reversal,
+                with unchanged amplitude magnitude.</p>
+            </div>
+          </details>
+          <details class="question" data-section="05" data-level="Intermediate" id="q66">
+            <summary><span class="q-number">066</span><span>Write a BPSK equation with a declared bit mapping.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>s(t) = A[2b(t)-1]cos(2 pi fc t). Here b=1 gives the reference carrier and b=0 gives its negative.
+                Reversing the bit-to-phase mapping is also valid if both ends agree.</p>
+            </div>
+          </details>
+          <details class="question" data-section="05" data-level="Intermediate" id="q67">
+            <summary><span class="q-number">067</span><span>What is the gain of an inverting op-amp with equal input and
+                feedback resistors?<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Gain is -Rf/Rin = -1. The notes show 10 kOhm resistors; the negative sign represents inversion, not a
+                negative amplitude magnitude.</p>
+            </div>
+          </details>
+          <details class="question" data-section="05" data-level="Intermediate" id="q68">
+            <summary><span class="q-number">068</span><span>How do you identify phase reversal on a scope?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Compare output with the reference carrier. In one data state their peaks align; in the other, a
+                positive peak aligns with a negative peak. Display the data trace as well.</p>
+            </div>
+          </details>
+          <details class="question" data-section="05" data-level="Intermediate" id="q69">
+            <summary><span class="q-number">069</span><span>Does every bit boundary cause a 180-degree change?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>No. In ordinary BPSK, the selected phase changes when the bit value changes. Consecutive identical bits
+                keep the same phase state.</p>
+            </div>
+          </details>
+          <details class="question" data-section="05" data-level="Intermediate" id="q70">
+            <summary><span class="q-number">070</span><span>What is the LF398 named in the circuit notes?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>A sample-and-hold IC. Treat the supplied Proteus circuit as a particular implementation to verify; do
+                not describe LF398 as a generic BPSK chip or assume its pins match an ordinary op-amp.</p>
+            </div>
+          </details>
+          <details class="question" data-section="05" data-level="Intermediate" id="q71">
+            <summary><span class="q-number">071</span><span>Why might BPSK appear like an uninterrupted sine wave?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>The data may be constant, the time scale may be unsuitable, or a phase change may occur near a zero
+                crossing. Compare against the carrier and data rather than looking for an amplitude gap.</p>
+            </div>
+          </details>
+          <details class="question" data-section="05" data-level="Intermediate" id="q72">
+            <summary><span class="q-number">072</span><span>How is coherent BPSK detected?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Multiply or correlate the received signal with a phase-aligned carrier, integrate over the symbol
+                interval, and decide from the sign. Timing and carrier synchronization are essential.</p>
+            </div>
+          </details>
+          <details class="question" data-section="05" data-level="Expert" id="q73">
+            <summary><span class="q-number">073</span><span>What is the 180-degree carrier ambiguity?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>A recovered carrier can have the opposite sign, reversing all decoded bits. A known preamble or
+                differential encoding can resolve the ambiguity.</p>
+            </div>
+          </details>
+          <details class="question" data-section="05" data-level="Expert" id="q74">
+            <summary><span class="q-number">074</span><span>What is the difference between BPSK and differential
+                BPSK?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Ordinary BPSK encodes a bit in an absolute phase state relative to a reference. Differential encoding
+                represents information using the change between successive phase states; the encoding and detection
+                method must be specified.</p>
+            </div>
+          </details>
+          <details class="question" data-section="05" data-level="Expert" id="q75">
+            <summary><span class="q-number">075</span><span>Why is &#x27;phase changes but frequency stays
+                constant&#x27; an idealized statement?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Within a symbol the sinusoid has the carrier frequency. Abrupt phase transitions create spectral
+                components and transition behavior; they do not mean the complete modulated signal is a single-frequency
+                sinusoid.</p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="06" aria-labelledby="topic-06">
+          <h3 id="topic-06">06 / Practical: 4-to-1 multiplexer</h3>
+          <details class="question" data-section="06" data-level="Basic" id="q76">
+            <summary><span class="q-number">076</span><span>What is a multiplexer?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A combinational circuit that selects one of several data inputs and forwards it to one output. It is
+                often called a data selector.</p>
+            </div>
+          </details>
+          <details class="question" data-section="06" data-level="Basic" id="q77">
+            <summary><span class="q-number">077</span><span>How many select lines does a 4-to-1 MUX need?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Two, because two binary select bits provide four combinations. In general, a 2^n-to-1 MUX needs n
+                select bits.</p>
+            </div>
+          </details>
+          <details class="question" data-section="06" data-level="Basic" id="q78">
+            <summary><span class="q-number">078</span><span>State the selection table.<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>With S1 as the most significant select bit: 00 selects D0, 01 selects D1, 10 selects D2, and 11 selects
+                D3.</p>
+            </div>
+          </details>
+          <details class="question" data-section="06" data-level="Basic" id="q79">
+            <summary><span class="q-number">079</span><span>Which basic gates implement this MUX?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Four three-input AND functions, two NOT functions and one four-input OR function. Equivalent
+                implementations can use other gate arrangements.</p>
+            </div>
+          </details>
+          <details class="question" data-section="06" data-level="Basic" id="q80">
+            <summary><span class="q-number">080</span><span>Is a MUX sequential or combinational?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Combinational. Its ideal output depends on present data and select inputs; it does not need a clock or
+                store past input values.</p>
+            </div>
+          </details>
+          <details class="question" data-section="06" data-level="Intermediate" id="q81">
+            <summary><span class="q-number">081</span><span>Write the Boolean output equation.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Y = D0 NOT(S1) NOT(S0) OR D1 NOT(S1) S0 OR D2 S1 NOT(S0) OR D3 S1 S0. Only the selected product term is
+                enabled.</p>
+            </div>
+          </details>
+          <details class="question" data-section="06" data-level="Intermediate" id="q82">
+            <summary><span class="q-number">082</span><span>What output results for D0,D1,D2,D3 = 1,0,1,0 and S1S0 =
+                10?<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>D2 is selected, so Y = 1. The unselected inputs do not affect the ideal settled output.</p>
+            </div>
+          </details>
+          <details class="question" data-section="06" data-level="Intermediate" id="q83">
+            <summary><span class="q-number">083</span><span>Why are inverted select signals required?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Each input must be enabled by one unique select combination. Complemented signals produce the
+                combinations containing a zero select bit.</p>
+            </div>
+          </details>
+          <details class="question" data-section="06" data-level="Intermediate" id="q84">
+            <summary><span class="q-number">084</span><span>How do you test a MUX beyond one example?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>For each of the four select settings, toggle the selected data input and verify the output follows it.
+                Toggle unselected inputs and confirm they do not change the settled output.</p>
+            </div>
+          </details>
+          <details class="question" data-section="06" data-level="Intermediate" id="q85">
+            <summary><span class="q-number">085</span><span>What mistake occurs when S0 and S1 are swapped?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>The meanings of select codes 01 and 10 exchange. State which wire is the most significant bit and check
+                the wiring against the equation.</p>
+            </div>
+          </details>
+          <details class="question" data-section="06" data-level="Intermediate" id="q86">
+            <summary><span class="q-number">086</span><span>How can a 4-to-1 MUX implement XOR of two variables?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Use A,B as select bits and set D0=0, D1=1, D2=1, D3=0. The selected constants reproduce the XOR truth
+                table.</p>
+            </div>
+          </details>
+          <details class="question" data-section="06" data-level="Intermediate" id="q87">
+            <summary><span class="q-number">087</span><span>How can you build an 8-to-1 MUX using 4-to-1 blocks?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Use two first-stage 4-to-1 MUXes controlled by the lower two select bits, then a 2-to-1 stage
+                controlled by the third bit. A third 4-to-1 device can be wired to act as that 2-to-1 stage.</p>
+            </div>
+          </details>
+          <details class="question" data-section="06" data-level="Expert" id="q88">
+            <summary><span class="q-number">088</span><span>Why may a physical MUX briefly glitch when select bits
+                change?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Different propagation delays can temporarily enable the wrong product term or none. Register the output
+                or sample after settling when a glitch would matter.</p>
+            </div>
+          </details>
+          <details class="question" data-section="06" data-level="Expert" id="q89">
+            <summary><span class="q-number">089</span><span>Is one CD4073 enough for four three-input AND
+                functions?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>No. A CD4073 contains three three-input AND gates, so four such functions require more than one package
+                or a different implementation. A simulator can hide this package-level detail.</p>
+            </div>
+          </details>
+          <details class="question" data-section="06" data-level="Expert" id="q90">
+            <summary><span class="q-number">090</span><span>Is the logic MUX experiment the same as FDM?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>No. The circuit selects a data input at an instant. FDM simultaneously allocates separate frequency
+                bands to channels. A periodically controlled MUX can be part of a time-division system, but the bare
+                circuit does not implement FDM.</p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="07" aria-labelledby="topic-07">
+          <h3 id="topic-07">07 / Practical: 1-to-4 demultiplexer</h3>
+          <details class="question" data-section="07" data-level="Basic" id="q91">
+            <summary><span class="q-number">091</span><span>What is a demultiplexer?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A combinational circuit that routes one data input to one of several outputs, as selected by control
+                bits. It is a data distributor.</p>
+            </div>
+          </details>
+          <details class="question" data-section="07" data-level="Basic" id="q92">
+            <summary><span class="q-number">092</span><span>How many lines does a 1-to-4 DEMUX have?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>One data input, two select inputs and four data outputs, excluding power and any separate enable input.
+              </p>
+            </div>
+          </details>
+          <details class="question" data-section="07" data-level="Basic" id="q93">
+            <summary><span class="q-number">093</span><span>What happens to unselected active-high outputs?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>They remain logic 0. The selected output follows the data input; it is not necessarily 1.</p>
+            </div>
+          </details>
+          <details class="question" data-section="07" data-level="Basic" id="q94">
+            <summary><span class="q-number">094</span><span>What happens when D = 0?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>All four outputs are 0 in the active-high AND-gate implementation, regardless of the select bits.</p>
+            </div>
+          </details>
+          <details class="question" data-section="07" data-level="Basic" id="q95">
+            <summary><span class="q-number">095</span><span>Which gates implement the lab DEMUX?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Four three-input AND functions and two inverters for the select signals. No final OR gate is needed
+                because the four outputs remain separate.</p>
+            </div>
+          </details>
+          <details class="question" data-section="07" data-level="Intermediate" id="q96">
+            <summary><span class="q-number">096</span><span>State the output equations.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Y0 = D NOT(S1) NOT(S0); Y1 = D NOT(S1) S0; Y2 = D S1 NOT(S0); Y3 = D S1 S0.</p>
+            </div>
+          </details>
+          <details class="question" data-section="07" data-level="Intermediate" id="q97">
+            <summary><span class="q-number">097</span><span>What happens for D = 1 and S1S0 = 10?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Y2 = 1 and Y0,Y1,Y3 = 0. If D then becomes 0, all outputs become 0.</p>
+            </div>
+          </details>
+          <details class="question" data-section="07" data-level="Intermediate" id="q98">
+            <summary><span class="q-number">098</span><span>How do you verify the whole circuit?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>For each select combination test D=0 and D=1, giving eight cases. Record Y0 through Y3 and compare with
+                the equations.</p>
+            </div>
+          </details>
+          <details class="question" data-section="07" data-level="Intermediate" id="q99">
+            <summary><span class="q-number">099</span><span>How does a DEMUX differ from a decoder?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>A decoder selects an output from a binary code. A DEMUX additionally routes a data value; a decoder
+                with an appropriate enable can perform a DEMUX function.</p>
+            </div>
+          </details>
+          <details class="question" data-section="07" data-level="Intermediate" id="q100">
+            <summary><span class="q-number">100</span><span>How can a 1-to-4 DEMUX behave as a 2-to-4 decoder?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Hold its data input at 1. Then each select combination activates one output, subject to the
+                circuit&#x27;s active-high or active-low convention.</p>
+            </div>
+          </details>
+          <details class="question" data-section="07" data-level="Intermediate" id="q101">
+            <summary><span class="q-number">101</span><span>How can MUX and DEMUX transfer several channels over one
+                data line?<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>The sender selects channels in sequence and the receiver routes successive time slots to corresponding
+                outputs. They need synchronized selection and, usually, storage to retain each channel&#x27;s value
+                between slots.</p>
+            </div>
+          </details>
+          <details class="question" data-section="07" data-level="Intermediate" id="q102">
+            <summary><span class="q-number">102</span><span>Why do two outputs sometimes appear active in
+                simulation?<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Check select complements, duplicate connections, whether outputs are active-low, and whether the
+                display catches a switching transient. Hold the select bits steady before judging the truth table.</p>
+            </div>
+          </details>
+          <details class="question" data-section="07" data-level="Expert" id="q103">
+            <summary><span class="q-number">103</span><span>Is a DEMUX simply a digital MUX wired backwards?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Not generally. Logic-gate implementations have directional signal flow. A bilateral analog switch
+                network may support both directions within its ratings, but a gate-based MUX does not automatically
+                become a DEMUX when reversed.</p>
+            </div>
+          </details>
+          <details class="question" data-section="07" data-level="Expert" id="q104">
+            <summary><span class="q-number">104</span><span>What does an active-low decoder change in the
+                interpretation?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>The selected output is 0 and unselected outputs are 1. Inversion may be needed before a circuit
+                expecting an active-high one-hot correction signal.</p>
+            </div>
+          </details>
+          <details class="question" data-section="07" data-level="Expert" id="q105">
+            <summary><span class="q-number">105</span><span>Why can routing data without a clock still create timing
+                problems?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Select signals and data have propagation delays and may change together. The receiver needs a
+                valid-data interval or sampling rule; combinational routing alone does not provide reliable timing
+                synchronization.</p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="08" aria-labelledby="topic-08">
+          <h3 id="topic-08">08 / Practical: Hamming-code generation</h3>
+          <details class="question" data-section="08" data-level="Basic" id="q106">
+            <summary><span class="q-number">106</span><span>What is Hamming coding?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A family of linear error-correcting block codes that add parity constraints to data. The lab&#x27;s
+                common Hamming(7,4) example uses four data bits and three parity bits.</p>
+            </div>
+          </details>
+          <details class="question" data-section="08" data-level="Basic" id="q107">
+            <summary><span class="q-number">107</span><span>What does (7,4) mean?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Each codeword contains seven bits, four carrying data and three providing redundancy. Its code rate is
+                4/7.</p>
+            </div>
+          </details>
+          <details class="question" data-section="08" data-level="Basic" id="q108">
+            <summary><span class="q-number">108</span><span>What is a parity bit?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A check bit chosen so a selected group has even or odd total parity. It adds a consistency condition;
+                it is not itself a copy of one specific data bit.</p>
+            </div>
+          </details>
+          <details class="question" data-section="08" data-level="Basic" id="q109">
+            <summary><span class="q-number">109</span><span>Where are parity bits placed in this guide?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>At positions 1,2,4, which are powers of two. Data D1,D2,D3,D4 occupy positions 3,5,6,7. Positions are
+                printed left to right in increasing order.</p>
+            </div>
+          </details>
+          <details class="question" data-section="08" data-level="Basic" id="q110">
+            <summary><span class="q-number">110</span><span>Which gate computes even-parity check bits?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>XOR. XOR of the selected data bits gives a parity bit that makes the XOR of the complete protected
+                group equal to zero.</p>
+            </div>
+          </details>
+          <details class="question" data-section="08" data-level="Intermediate" id="q111">
+            <summary><span class="q-number">111</span><span>How many parity bits are needed for m data bits?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Choose the smallest r satisfying 2^r &gt;= m+r+1 for single-error location, including the no-error
+                case. For m=4, r=3 because 8 &gt;= 8.</p>
+            </div>
+          </details>
+          <details class="question" data-section="08" data-level="Intermediate" id="q112">
+            <summary><span class="q-number">112</span><span>What are the even-parity equations?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>P1 = D1 XOR D2 XOR D4; P2 = D1 XOR D3 XOR D4; P4 = D2 XOR D3 XOR D4. Codeword order is
+                P1,P2,D1,P4,D2,D3,D4.</p>
+            </div>
+          </details>
+          <details class="question" data-section="08" data-level="Intermediate" id="q113">
+            <summary><span class="q-number">113</span><span>Why does P1 cover positions 1,3,5,7?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Those position numbers have least significant binary bit 1. P2 covers 2,3,6,7 and P4 covers 4,5,6,7
+                using the other binary position bits.</p>
+            </div>
+          </details>
+          <details class="question" data-section="08" data-level="Intermediate" id="q114">
+            <summary><span class="q-number">114</span><span>Encode data D1D2D3D4 = 1011 with even parity.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>P1=1 XOR 0 XOR 1=0; P2=1 XOR 1 XOR 1=1; P4=0 XOR 1 XOR 1=0. In increasing position order the codeword
+                is 0110011.</p>
+            </div>
+          </details>
+          <details class="question" data-section="08" data-level="Intermediate" id="q115">
+            <summary><span class="q-number">115</span><span>Encode data 1001 using the same convention.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>P1=0, P2=0 and P4=1, so the codeword is 0011001. Do not compare this printed string with another source
+                until its bit order and parity convention are known.</p>
+            </div>
+          </details>
+          <details class="question" data-section="08" data-level="Intermediate" id="q116">
+            <summary><span class="q-number">116</span><span>How is the encoder built using two-input XOR gates?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Each parity is the XOR of three data bits, made by cascading two XOR gates. Three independent parity
+                networks use six XOR gates; route the four data bits directly to their codeword positions.</p>
+            </div>
+          </details>
+          <details class="question" data-section="08" data-level="Intermediate" id="q117">
+            <summary><span class="q-number">117</span><span>How do you test the encoder?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Apply several data patterns, read all seven bits and independently XOR each parity group. For full
+                coverage, test all 16 possible four-bit input words.</p>
+            </div>
+          </details>
+          <details class="question" data-section="08" data-level="Expert" id="q118">
+            <summary><span class="q-number">118</span><span>Why must the bit-position convention be stated first?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Some diagrams number from the right, use D0-D3, or print parity bits separately. Equivalent encoders
+                can produce different-looking strings; syndrome interpretation is only valid with a consistent mapping.
+              </p>
+            </div>
+          </details>
+          <details class="question" data-section="08" data-level="Expert" id="q119">
+            <summary><span class="q-number">119</span><span>Why are three checks sufficient for seven single-bit
+                locations?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Three syndrome bits provide eight patterns: zero for no detected error and seven nonzero patterns for
+                the seven positions. Each column of the parity-check matrix is a different nonzero three-bit position
+                label.</p>
+            </div>
+          </details>
+          <details class="question" data-section="08" data-level="Expert" id="q120">
+            <summary><span class="q-number">120</span><span>What is the cost of this error correction?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Redundancy reduces information rate: only four of every seven transmitted bits are data. It also adds
+                encoder/decoder logic and may add latency, in exchange for correction of a single error per codeword.
+              </p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="09" aria-labelledby="topic-09">
+          <h3 id="topic-09">09 / Practical: Hamming error detection and correction</h3>
+          <details class="question" data-section="09" data-level="Basic" id="q121">
+            <summary><span class="q-number">121</span><span>What is a syndrome?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>The vector of parity-check results computed from the received word. For this guide write it as S4 S2
+                S1; interpret it as a binary position number under the single-error assumption.</p>
+            </div>
+          </details>
+          <details class="question" data-section="09" data-level="Basic" id="q122">
+            <summary><span class="q-number">122</span><span>What does syndrome 000 mean?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>All parity checks pass. It means no error is detected, not that arbitrary multiple-bit corruption is
+                impossible.</p>
+            </div>
+          </details>
+          <details class="question" data-section="09" data-level="Basic" id="q123">
+            <summary><span class="q-number">123</span><span>What does syndrome 101 mean?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Decimal position 5 is implicated if there is at most one error in the seven-bit codeword. Flip that bit
+                to correct a single-bit error.</p>
+            </div>
+          </details>
+          <details class="question" data-section="09" data-level="Basic" id="q124">
+            <summary><span class="q-number">124</span><span>What is Hamming distance?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>The number of bit positions in which two equal-length words differ. For example, 1011 and 1001 differ
+                in one position.</p>
+            </div>
+          </details>
+          <details class="question" data-section="09" data-level="Basic" id="q125">
+            <summary><span class="q-number">125</span><span>What is the minimum distance of Hamming(7,4)?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Three. This supports correction of one arbitrary bit error, or detection of up to two errors when used
+                only as an error detector.</p>
+            </div>
+          </details>
+          <details class="question" data-section="09" data-level="Intermediate" id="q126">
+            <summary><span class="q-number">126</span><span>Write the syndrome equations.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>S1 = r1 XOR r3 XOR r5 XOR r7; S2 = r2 XOR r3 XOR r6 XOR r7; S4 = r4 XOR r5 XOR r6 XOR r7. These
+                equations use even parity and the stated numbering.</p>
+            </div>
+          </details>
+          <details class="question" data-section="09" data-level="Intermediate" id="q127">
+            <summary><span class="q-number">127</span><span>Correct received word 0110111.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Starting from encoded 1011 = 0110011, position 5 has flipped. Checks give S1=1, S2=0, S4=1, so syndrome
+                101 indicates position 5. Flipping it restores 0110011 and data 1011.</p>
+            </div>
+          </details>
+          <details class="question" data-section="09" data-level="Intermediate" id="q128">
+            <summary><span class="q-number">128</span><span>What happens if a parity bit itself is corrupted?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>It is still a single-bit error and produces the corresponding position syndrome. For example, an error
+                in position 4 gives syndrome 100; the correction flips that parity bit.</p>
+            </div>
+          </details>
+          <details class="question" data-section="09" data-level="Intermediate" id="q129">
+            <summary><span class="q-number">129</span><span>How can a decoder and XOR gates correct the word?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Decode the nonzero syndrome into a one-hot error-location signal, then XOR that signal with the
+                corresponding received bit. For syndrome zero no codeword bit should be flipped.</p>
+            </div>
+          </details>
+          <details class="question" data-section="09" data-level="Intermediate" id="q130">
+            <summary><span class="q-number">130</span><span>What is the function of the 74LS138 in the notes?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>It is a 3-to-8 decoder/demultiplexer, not an encoder. Its selected output is active-low, so correction
+                logic must account for polarity and enable inputs.</p>
+            </div>
+          </details>
+          <details class="question" data-section="09" data-level="Intermediate" id="q131">
+            <summary><span class="q-number">131</span><span>How should error injection be demonstrated?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Generate a valid word, XOR a chosen bit with an error toggle, and show the corrupted word, syndrome,
+                corrected word and recovered data. Repeat for each position, not just one data bit.</p>
+            </div>
+          </details>
+          <details class="question" data-section="09" data-level="Intermediate" id="q132">
+            <summary><span class="q-number">132</span><span>What extra bit produces extended Hamming SECDED?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>An overall parity bit extends Hamming(7,4) to (8,4), with minimum distance four. It permits
+                single-error correction and double-error detection under the assumed up-to-two-error model.</p>
+            </div>
+          </details>
+          <details class="question" data-section="09" data-level="Expert" id="q133">
+            <summary><span class="q-number">133</span><span>Why can ordinary Hamming miscorrect two errors?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Two erroneous positions combine to produce a syndrome that also names another position. A decoder that
+                assumes one error flips that third bit, potentially producing a different valid codeword.</p>
+            </div>
+          </details>
+          <details class="question" data-section="09" data-level="Expert" id="q134">
+            <summary><span class="q-number">134</span><span>Give a two-error counterexample.<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Starting from 0110011, flip positions 1 and 2 to get 1010011. Syndrome is 011, so a naive correction
+                flips position 3 and produces 1000011, a wrong valid codeword. Detection and safe correction are
+                different capabilities.</p>
+            </div>
+          </details>
+          <details class="question" data-section="09" data-level="Expert" id="q135">
+            <summary><span class="q-number">135</span><span>State the extended-Hamming decision rule.<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Let S be the three-bit syndrome and P the XOR of all eight received bits. With at most two errors:
+                S=0,P=0 means no detected error; S!=0,P=1 means correct position S; S=0,P=1 means flip overall parity;
+                S!=0,P=0 means detected double error, do not correct.</p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="10" aria-labelledby="topic-10">
+          <h3 id="topic-10">10 / Practical: RS-232 serial communication</h3>
+          <details class="question" data-section="10" data-level="Basic" id="q136">
+            <summary><span class="q-number">136</span><span>What is RS-232?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>An electrical and interface standard for serial communication between equipment. It specifies signal
+                behavior and interface conventions; it is not an application message format like a text-command
+                language.</p>
+            </div>
+          </details>
+          <details class="question" data-section="10" data-level="Basic" id="q137">
+            <summary><span class="q-number">137</span><span>What is a UART?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A Universal Asynchronous Receiver/Transmitter. It converts parallel bytes to serial frames and received
+                frames back to bytes, handling start/stop timing and optional parity.</p>
+            </div>
+          </details>
+          <details class="question" data-section="10" data-level="Basic" id="q138">
+            <summary><span class="q-number">138</span><span>What is the MAX232?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A line driver/receiver that translates between logic-level signals and RS-232 levels. It is not a UART
+                and does not generate baud timing or interpret characters.</p>
+            </div>
+          </details>
+          <details class="question" data-section="10" data-level="Basic" id="q139">
+            <summary><span class="q-number">139</span><span>What do TX and RX mean?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Transmit and receive, relative to the named device or endpoint. An output must ultimately drive the
+                other endpoint&#x27;s input; connector labels can be referenced to DTE conventions.</p>
+            </div>
+          </details>
+          <details class="question" data-section="10" data-level="Basic" id="q140">
+            <summary><span class="q-number">140</span><span>What does 9600 8N1 mean?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A bit rate of 9600 bit/s, eight data bits, no parity and one stop bit. With one start bit there are ten
+                transmitted bits per character.</p>
+            </div>
+          </details>
+          <details class="question" data-section="10" data-level="Intermediate" id="q141">
+            <summary><span class="q-number">141</span><span>What are the data polarities on RS-232?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Mark, representing data 1 and idle, is negative; space, representing data 0, is positive. Receiver
+                levels beyond -3 V and +3 V are valid respective states; the region between is undefined by the
+                interface specification.</p>
+            </div>
+          </details>
+          <details class="question" data-section="10" data-level="Intermediate" id="q142">
+            <summary><span class="q-number">142</span><span>Which parameters must agree at the two endpoints?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Data rate, data-bit count, parity, stop-bit configuration and flow-control expectations. Electrical
+                compatibility and correct signal direction are also necessary.</p>
+            </div>
+          </details>
+          <details class="question" data-section="10" data-level="Intermediate" id="q143">
+            <summary><span class="q-number">143</span><span>What is the maximum 8N1 character rate at 9600 bit/s?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>9600/10 = 960 characters per second, assuming continuous transmission without extra gaps or
+                flow-control pauses. Useful payload bit rate is 7680 bit/s.</p>
+            </div>
+          </details>
+          <details class="question" data-section="10" data-level="Intermediate" id="q144">
+            <summary><span class="q-number">144</span><span>Explain the two MAX232 paths used in a loopback.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Logic input T1IN pin 11 drives RS-232 output T1OUT pin 14. RS-232 input R1IN pin 13 produces logic
+                output R1OUT pin 12. Connecting 14 to 13 forms an external RS-232-side loopback.</p>
+            </div>
+          </details>
+          <details class="question" data-section="10" data-level="Intermediate" id="q145">
+            <summary><span class="q-number">145</span><span>Why are capacitors used with MAX232?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>They support its charge pump, which creates positive and negative line-driver supplies. Their values
+                and connections must match the exact device datasheet; MAX232-family variants are not all identical.</p>
+            </div>
+          </details>
+          <details class="question" data-section="10" data-level="Intermediate" id="q146">
+            <summary><span class="q-number">146</span><span>Why might random characters appear?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Check mismatched baud/framing, wrong polarity, invalid voltage levels, noise, missing reference ground
+                or simulation timing. Use a repeated known character and scope the frame to narrow the fault.</p>
+            </div>
+          </details>
+          <details class="question" data-section="10" data-level="Intermediate" id="q147">
+            <summary><span class="q-number">147</span><span>What is a framing error?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>The receiver does not see the expected stop-bit condition at the expected time. Wrong bit timing, a
+                break condition or corrupted signaling can cause it.</p>
+            </div>
+          </details>
+          <details class="question" data-section="10" data-level="Expert" id="q148">
+            <summary><span class="q-number">148</span><span>Can a TTL UART connect directly to a real RS-232 port?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Not as a general electrical interface. Their voltage levels and polarity differ, and RS-232 voltages
+                can damage logic inputs. Use an appropriate transceiver or the correct interface adapter.</p>
+            </div>
+          </details>
+          <details class="question" data-section="10" data-level="Expert" id="q149">
+            <summary><span class="q-number">149</span><span>Does text visible with local echo prove transmission
+                worked?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>No. Local echo can display keystrokes before anything returns. Disable it or use a distinct remote
+                reply to prove that the complete receive path works.</p>
+            </div>
+          </details>
+          <details class="question" data-section="10" data-level="Expert" id="q150">
+            <summary><span class="q-number">150</span><span>Is serial always slower than parallel?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>No. Serial links can run at high rates with fewer skew and crosstalk problems. Compare a specific
+                serial standard and physical implementation rather than assuming the number of wires determines speed.
+              </p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="11" aria-labelledby="topic-11">
+          <h3 id="topic-11">11 / Practical: null-modem communication</h3>
+          <details class="question" data-section="11" data-level="Basic" id="q151">
+            <summary><span class="q-number">151</span><span>What is a null-modem connection?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A direct connection between two DTE endpoints that crosses the necessary serial signals, allowing
+                communication without modems between them.</p>
+            </div>
+          </details>
+          <details class="question" data-section="11" data-level="Basic" id="q152">
+            <summary><span class="q-number">152</span><span>What are DTE and DCE?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Data Terminal Equipment is an endpoint such as a computer; Data Circuit-terminating Equipment provides
+                the communication-side interface, traditionally a modem. Signal direction depends on which role a
+                connector follows.</p>
+            </div>
+          </details>
+          <details class="question" data-section="11" data-level="Basic" id="q153">
+            <summary><span class="q-number">153</span><span>What is the minimum three-wire DE-9 DTE-to-DTE null-modem
+                wiring?<small class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Cross pin 3 TX at one end to pin 2 RX at the other, cross the reverse direction, and connect signal
+                ground pin 5 to pin 5. This assumes the standard PC-style DTE pin assignment.</p>
+            </div>
+          </details>
+          <details class="question" data-section="11" data-level="Basic" id="q154">
+            <summary><span class="q-number">154</span><span>Why does a straight-through cable fail between two standard
+                DTE ports?<small class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>It connects transmit to transmit and receive to receive. The null-modem crossover connects each
+                transmitter to the opposite receiver.</p>
+            </div>
+          </details>
+          <details class="question" data-section="11" data-level="Basic" id="q155">
+            <summary><span class="q-number">155</span><span>What is COMPIM used for in the lab?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>It connects a Proteus simulation to a host computer serial-port interface. Its configured COM port must
+                exist and be available to the simulator.</p>
+            </div>
+          </details>
+          <details class="question" data-section="11" data-level="Intermediate" id="q156">
+            <summary><span class="q-number">156</span><span>Is COM9 a mandatory setting?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>No. It is an example in the notes. Use the actual available port or one endpoint of a virtual
+                paired-port setup, and configure the other application for its matching peer.</p>
+            </div>
+          </details>
+          <details class="question" data-section="11" data-level="Intermediate" id="q157">
+            <summary><span class="q-number">157</span><span>How do you test both directions?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Send a distinctive string from A to B and verify it at B, then send a different string from B to A.
+                Disable local echo when it could hide a broken link.</p>
+            </div>
+          </details>
+          <details class="question" data-section="11" data-level="Intermediate" id="q158">
+            <summary><span class="q-number">158</span><span>What does a virtual serial-port pair do?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>It presents two software COM endpoints whose transmitted bytes are delivered to the other endpoint.
+                Each application opens its assigned side; the pair stands in for a cable connection.</p>
+            </div>
+          </details>
+          <details class="question" data-section="11" data-level="Intermediate" id="q159">
+            <summary><span class="q-number">159</span><span>Why might a COM port be unavailable?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Another process may already have it open, the chosen port may not exist, or the driver or virtual-pair
+                setup may be missing. Check availability before changing circuit wiring.</p>
+            </div>
+          </details>
+          <details class="question" data-section="11" data-level="Intermediate" id="q160">
+            <summary><span class="q-number">160</span><span>What is hardware flow control?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Extra control signals indicate whether a peer can accept more data. RTS/CTS is a common pair; both
+                endpoints and cable wiring must support the selected convention.</p>
+            </div>
+          </details>
+          <details class="question" data-section="11" data-level="Intermediate" id="q161">
+            <summary><span class="q-number">161</span><span>What is software flow control?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Special characters, commonly XON and XOFF, request that transmission resume or pause. If arbitrary
+                binary data contains these values, the protocol must handle them appropriately or disable that mode.</p>
+            </div>
+          </details>
+          <details class="question" data-section="11" data-level="Intermediate" id="q162">
+            <summary><span class="q-number">162</span><span>Why can a three-wire cable appear correctly wired but
+                transmit nothing?<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>An endpoint may be waiting for a handshake signal not present on the cable. For the simple lab
+                demonstration, use matching no-flow-control settings if the experiment permits it.</p>
+            </div>
+          </details>
+          <details class="question" data-section="11" data-level="Expert" id="q163">
+            <summary><span class="q-number">163</span><span>Is there one universal full-handshake null-modem
+                cable?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>No. Required crossings or loopbacks depend on the equipment&#x27;s control-signal expectations. The
+                three-wire arrangement is enough only when hardware handshaking is unnecessary or appropriately
+                disabled.</p>
+            </div>
+          </details>
+          <details class="question" data-section="11" data-level="Expert" id="q164">
+            <summary><span class="q-number">164</span><span>How is loopback different from null modem?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Loopback returns one endpoint&#x27;s own transmit signal to its receiver. Null modem connects two
+                endpoints. A successful loopback helps isolate a local fault but does not prove the remote cable and
+                endpoint work.</p>
+            </div>
+          </details>
+          <details class="question" data-section="11" data-level="Expert" id="q165">
+            <summary><span class="q-number">165</span><span>Why must you inspect COMPIM signal direction rather than
+                blindly connect identical labels?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Connector labels may follow DTE naming while simulator pins represent signals entering or leaving the
+                model. Trace each source to a compatible receiver using the model&#x27;s pin direction and voltage
+                convention.</p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="12" aria-labelledby="topic-12">
+          <h3 id="topic-12">12 / Practical: network topologies</h3>
+          <details class="question" data-section="12" data-level="Basic" id="q166">
+            <summary><span class="q-number">166</span><span>What is network topology?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>The arrangement of network devices and links. Physical topology describes connections; logical topology
+                describes how communication flows over them.</p>
+            </div>
+          </details>
+          <details class="question" data-section="12" data-level="Basic" id="q167">
+            <summary><span class="q-number">167</span><span>Describe a star topology.<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Each endpoint connects to a central device. A failed endpoint cable usually affects one station, while
+                failure of the central device can affect the whole star.</p>
+            </div>
+          </details>
+          <details class="question" data-section="12" data-level="Basic" id="q168">
+            <summary><span class="q-number">168</span><span>Describe bus and ring topologies.<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A traditional bus shares one backbone medium. A ring connects nodes in a closed loop. Their actual
+                access and fault behavior depend on the link technology and protocol.</p>
+            </div>
+          </details>
+          <details class="question" data-section="12" data-level="Basic" id="q169">
+            <summary><span class="q-number">169</span><span>What is a mesh topology?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A topology with multiple interconnections between nodes. A full mesh connects every pair; a partial
+                mesh connects only selected pairs.</p>
+            </div>
+          </details>
+          <details class="question" data-section="12" data-level="Basic" id="q170">
+            <summary><span class="q-number">170</span><span>What are tree and hybrid topologies?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A tree uses a hierarchical branching arrangement. A hybrid combines multiple topology patterns in one
+                network.</p>
+            </div>
+          </details>
+          <details class="question" data-section="12" data-level="Intermediate" id="q171">
+            <summary><span class="q-number">171</span><span>What is the basic Packet Tracer test in the notes?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Connect PCs and network devices, assign compatible unique IP addresses, then test delivery using ping
+                or a simple PDU. Observe link state and the path taken.</p>
+            </div>
+          </details>
+          <details class="question" data-section="12" data-level="Intermediate" id="q172">
+            <summary><span class="q-number">172</span><span>Give a suitable four-PC IPv4 example.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Use 192.168.10.1 through 192.168.10.4 with mask 255.255.255.0 on a common LAN. No default gateway is
+                needed just to communicate within that same subnet.</p>
+            </div>
+          </details>
+          <details class="question" data-section="12" data-level="Intermediate" id="q173">
+            <summary><span class="q-number">173</span><span>Which Ethernet cable choices are traditionally taught?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Straight-through for PC-to-switch or PC-to-hub; crossover for similar interfaces such as
+                switch-to-switch when auto-MDI/MDIX is absent. Modern equipment may automatically adjust, so cable rules
+                depend on device support.</p>
+            </div>
+          </details>
+          <details class="question" data-section="12" data-level="Intermediate" id="q174">
+            <summary><span class="q-number">174</span><span>What is the difference between a hub and a switch?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>A hub repeats signals to other ports. A switch learns source MAC addresses and forwards frames based on
+                destination MAC addresses, reducing unnecessary forwarding for known unicast traffic.</p>
+            </div>
+          </details>
+          <details class="question" data-section="12" data-level="Intermediate" id="q175">
+            <summary><span class="q-number">175</span><span>Why can the first ping fail and later pings succeed?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Address resolution or link/topology convergence may still be occurring. Inspect ARP and link state,
+                wait for settling, and retest; do not assume every first failure is harmless.</p>
+            </div>
+          </details>
+          <details class="question" data-section="12" data-level="Intermediate" id="q176">
+            <summary><span class="q-number">176</span><span>How many links are needed for a full mesh of n nodes?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>n(n-1)/2 undirected point-to-point links. For five nodes, 5 x 4/2 = 10 links.</p>
+            </div>
+          </details>
+          <details class="question" data-section="12" data-level="Intermediate" id="q177">
+            <summary><span class="q-number">177</span><span>Is a chain of Ethernet switches a true shared bus?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>No. It is a line or chain of point-to-point switched links. It may resemble a bus drawing, but does not
+                reproduce a single shared-coax collision domain.</p>
+            </div>
+          </details>
+          <details class="question" data-section="12" data-level="Expert" id="q178">
+            <summary><span class="q-number">178</span><span>What happens if you connect Ethernet switches in a
+                ring?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>You create redundant Layer-2 paths. Spanning Tree can block a path to prevent forwarding loops; without
+                suitable loop prevention, broadcasts can circulate and cause a storm.</p>
+            </div>
+          </details>
+          <details class="question" data-section="12" data-level="Expert" id="q179">
+            <summary><span class="q-number">179</span><span>Does a physical switch ring implement token-ring
+                networking?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>No. Physical shape does not supply a token-passing protocol. Ethernet with a ring of switches still
+                follows Ethernet forwarding and loop-prevention rules.</p>
+            </div>
+          </details>
+          <details class="question" data-section="12" data-level="Expert" id="q180">
+            <summary><span class="q-number">180</span><span>Why is an amber or blocked redundant link not necessarily a
+                fault?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Spanning Tree may intentionally place a redundant port in a non-forwarding state. Check protocol state
+                and end-to-end reachability before attempting to force every link to forward.</p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="13" aria-labelledby="topic-13">
+          <h3 id="topic-13">13 / IP addressing and subnetting</h3>
+          <details class="question" data-section="13" data-level="Basic" id="q181">
+            <summary><span class="q-number">181</span><span>How large is an IPv4 address?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>32 bits, commonly written as four decimal octets from 0 to 255. An address and prefix length together
+                identify the network and host portions.</p>
+            </div>
+          </details>
+          <details class="question" data-section="13" data-level="Basic" id="q182">
+            <summary><span class="q-number">182</span><span>How large is an IPv6 address?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>128 bits, normally written in hexadecimal groups separated by colons. IPv6 expands the address space
+                and differs from IPv4 in several protocol details.</p>
+            </div>
+          </details>
+          <details class="question" data-section="13" data-level="Basic" id="q183">
+            <summary><span class="q-number">183</span><span>What is a subnet mask?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A 32-bit value whose contiguous leading ones identify the network prefix in ordinary CIDR addressing.
+                For example, /24 corresponds to 255.255.255.0.</p>
+            </div>
+          </details>
+          <details class="question" data-section="13" data-level="Basic" id="q184">
+            <summary><span class="q-number">184</span><span>What is a default gateway?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>The next-hop router used when no more specific route applies, typically to reach destinations outside
+                the local subnet. It must be reachable on the local link.</p>
+            </div>
+          </details>
+          <details class="question" data-section="13" data-level="Basic" id="q185">
+            <summary><span class="q-number">185</span><span>What is ping?<small class="level basic">Basic</small></span>
+            </summary>
+            <div class="answer">
+              <p>A diagnostic that commonly sends ICMP Echo Requests and receives Echo Replies. A reply demonstrates IP
+                reachability for that exchange, not that every application service works.</p>
+            </div>
+          </details>
+          <details class="question" data-section="13" data-level="Intermediate" id="q186">
+            <summary><span class="q-number">186</span><span>Find network, broadcast and hosts for
+                192.168.10.25/24.<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Network: 192.168.10.0. Broadcast: 192.168.10.255. Ordinary usable host range:
+                192.168.10.1-192.168.10.254, giving 254 hosts.</p>
+            </div>
+          </details>
+          <details class="question" data-section="13" data-level="Intermediate" id="q187">
+            <summary><span class="q-number">187</span><span>Find the subnet for 192.168.10.70/26.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>/26 is 255.255.255.192, giving blocks of 64. Address 70 is in network 192.168.10.64, broadcast .127,
+                with ordinary hosts .65-.126.</p>
+            </div>
+          </details>
+          <details class="question" data-section="13" data-level="Intermediate" id="q188">
+            <summary><span class="q-number">188</span><span>What are the private IPv4 ranges?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16. They are intended for private addressing and are not
+                globally routed as ordinary public addresses.</p>
+            </div>
+          </details>
+          <details class="question" data-section="13" data-level="Intermediate" id="q189">
+            <summary><span class="q-number">189</span><span>How does a host determine whether a destination is
+                local?<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>It applies the relevant prefix/mask to its own address and the destination. Matching local subnet
+                prefixes normally allow direct delivery; otherwise routing via a next hop is needed.</p>
+            </div>
+          </details>
+          <details class="question" data-section="13" data-level="Intermediate" id="q190">
+            <summary><span class="q-number">190</span><span>What does ARP do?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>On IPv4 Ethernet, it resolves a local next-hop IPv4 address to a MAC address. For a remote destination
+                the host usually resolves the gateway&#x27;s MAC, not the remote host&#x27;s MAC.</p>
+            </div>
+          </details>
+          <details class="question" data-section="13" data-level="Intermediate" id="q191">
+            <summary><span class="q-number">191</span><span>What do DHCP and DNS do?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>DHCP can supply address configuration such as IP, mask and gateway. DNS resolves names to records such
+                as IP addresses. They solve different problems.</p>
+            </div>
+          </details>
+          <details class="question" data-section="13" data-level="Intermediate" id="q192">
+            <summary><span class="q-number">192</span><span>Why can duplicate IP addresses break a lab?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Different machines may answer for the same address, causing inconsistent address resolution and
+                delivery. Give each host a unique usable address within the intended subnet.</p>
+            </div>
+          </details>
+          <details class="question" data-section="13" data-level="Expert" id="q193">
+            <summary><span class="q-number">193</span><span>Why is &#x27;2^h - 2 hosts&#x27; not universal?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>It applies to conventional IPv4 subnets reserving all-zero host bits for the network and all-one host
+                bits for broadcast. /31 point-to-point addressing and /32 routes are special cases; do not apply the
+                rule blindly.</p>
+            </div>
+          </details>
+          <details class="question" data-section="13" data-level="Expert" id="q194">
+            <summary><span class="q-number">194</span><span>Are class A, B and C masks how all networks are routed
+                today?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>No. They are useful historical classful concepts. CIDR uses explicit prefix lengths, so a 192.x address
+                need not be configured as /24.</p>
+            </div>
+          </details>
+          <details class="question" data-section="13" data-level="Expert" id="q195">
+            <summary><span class="q-number">195</span><span>Ping by address works but a hostname fails; what next?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Check DNS configuration and name resolution. The successful address test suggests basic reachability,
+                but does not establish that the DNS server or the name record is correct.</p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="14" aria-labelledby="topic-14">
+          <h3 id="topic-14">14 / OSI, TCP/IP and network devices</h3>
+          <details class="question" data-section="14" data-level="Basic" id="q196">
+            <summary><span class="q-number">196</span><span>Name the seven OSI layers from bottom to top.<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Physical, Data Link, Network, Transport, Session, Presentation and Application. Explain a function of
+                each instead of only memorizing the names.</p>
+            </div>
+          </details>
+          <details class="question" data-section="14" data-level="Basic" id="q197">
+            <summary><span class="q-number">197</span><span>What does the physical layer do?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>It carries signals representing bits over a medium, including electrical/optical behavior, signaling
+                and physical interface aspects.</p>
+            </div>
+          </details>
+          <details class="question" data-section="14" data-level="Basic" id="q198">
+            <summary><span class="q-number">198</span><span>What does the data-link layer do?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>It handles frames across a link, including link addressing, medium access and error detection as
+                provided by the particular link technology.</p>
+            </div>
+          </details>
+          <details class="question" data-section="14" data-level="Basic" id="q199">
+            <summary><span class="q-number">199</span><span>What does the network layer do?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>It handles logical addressing and forwarding across networks. IP operates here; routers choose next
+                hops using routing information.</p>
+            </div>
+          </details>
+          <details class="question" data-section="14" data-level="Basic" id="q200">
+            <summary><span class="q-number">200</span><span>What does the transport layer do?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>It supports communication between processes on hosts. TCP provides reliable ordered byte-stream
+                delivery, while UDP provides datagrams with minimal transport services.</p>
+            </div>
+          </details>
+          <details class="question" data-section="14" data-level="Intermediate" id="q201">
+            <summary><span class="q-number">201</span><span>How does the TCP/IP model map to OSI?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>A common four-layer model uses Link, Internet, Transport and Application. Its Application layer covers
+                much of OSI&#x27;s upper three layers; educational five-layer variants split Physical from Data Link.
+              </p>
+            </div>
+          </details>
+          <details class="question" data-section="14" data-level="Intermediate" id="q202">
+            <summary><span class="q-number">202</span><span>What is encapsulation?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Each layer adds control information around the higher-layer data. For example, application bytes may be
+                carried in TCP, then IP, then an Ethernet frame.</p>
+            </div>
+          </details>
+          <details class="question" data-section="14" data-level="Intermediate" id="q203">
+            <summary><span class="q-number">203</span><span>Distinguish MAC address, IP address and port number.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>A MAC address identifies a link-layer interface in the local forwarding context; an IP address supports
+                network-layer delivery; a transport port identifies an endpoint service or conversation on a host.</p>
+            </div>
+          </details>
+          <details class="question" data-section="14" data-level="Intermediate" id="q204">
+            <summary><span class="q-number">204</span><span>Compare bridge, switch and router.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Bridges and ordinary Layer-2 switches forward using MAC addresses. Routers forward between IP networks.
+                A multilayer switch can also perform routing, so identify the function being used.</p>
+            </div>
+          </details>
+          <details class="question" data-section="14" data-level="Intermediate" id="q205">
+            <summary><span class="q-number">205</span><span>Why does a switch learn source MAC addresses?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>The arrival port tells it where the source is reachable. It uses that learned table later to choose an
+                output port for frames addressed to that source.</p>
+            </div>
+          </details>
+          <details class="question" data-section="14" data-level="Intermediate" id="q206">
+            <summary><span class="q-number">206</span><span>What happens to an unknown unicast at a typical
+                switch?<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>It is flooded within the relevant VLAN to eligible ports except the incoming port. Once the
+                destination&#x27;s location is learned, known unicast can be forwarded selectively.</p>
+            </div>
+          </details>
+          <details class="question" data-section="14" data-level="Intermediate" id="q207">
+            <summary><span class="q-number">207</span><span>What is a broadcast domain?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>A set of interfaces that receive a link-layer broadcast. A VLAN commonly forms one broadcast domain;
+                routers normally separate such domains.</p>
+            </div>
+          </details>
+          <details class="question" data-section="14" data-level="Expert" id="q208">
+            <summary><span class="q-number">208</span><span>Does UDP mean an application cannot be reliable?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>No. UDP itself does not provide TCP-style retransmission and ordering, but an application or protocol
+                above it can implement reliability, sequencing and congestion control.</p>
+            </div>
+          </details>
+          <details class="question" data-section="14" data-level="Expert" id="q209">
+            <summary><span class="q-number">209</span><span>Why does a router change Ethernet addresses but not normally
+                the destination IP?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Each hop needs a new local-link frame addressed to its next hop. The IP destination normally identifies
+                the end destination, except when mechanisms such as NAT intentionally rewrite it.</p>
+            </div>
+          </details>
+          <details class="question" data-section="14" data-level="Expert" id="q210">
+            <summary><span class="q-number">210</span><span>Does a successful ping prove an HTTP server is
+                working?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>No. ICMP reachability and TCP/application availability are different tests. The service may be stopped
+                or filtered even when ping replies succeed.</p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="15" aria-labelledby="topic-15">
+          <h3 id="topic-15">15 / Transmission media and impairments</h3>
+          <details class="question" data-section="15" data-level="Basic" id="q211">
+            <summary><span class="q-number">211</span><span>What are guided and unguided media?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Guided media constrain signals to a physical path such as copper or fiber. Unguided media use
+                electromagnetic propagation through space, such as radio and microwave links.</p>
+            </div>
+          </details>
+          <details class="question" data-section="15" data-level="Basic" id="q212">
+            <summary><span class="q-number">212</span><span>Why are wires twisted in twisted-pair cable?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Twisting helps balance interference pickup and reduce crosstalk between pairs. Performance also depends
+                on pair geometry, termination and the signaling method.</p>
+            </div>
+          </details>
+          <details class="question" data-section="15" data-level="Basic" id="q213">
+            <summary><span class="q-number">213</span><span>What is coaxial cable?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A cable with a central conductor, dielectric, surrounding conductor/shield and outer insulation. Its
+                controlled geometry supports a defined impedance and shielding.</p>
+            </div>
+          </details>
+          <details class="question" data-section="15" data-level="Basic" id="q214">
+            <summary><span class="q-number">214</span><span>How does optical fiber carry information?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Light propagates along a dielectric waveguide. A transmitter modulates an optical signal and a receiver
+                detects it; the cable does not carry the data as an electrical current.</p>
+            </div>
+          </details>
+          <details class="question" data-section="15" data-level="Basic" id="q215">
+            <summary><span class="q-number">215</span><span>What is crosstalk?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Unwanted coupling from one signal path into another. It can occur between copper pairs and reduces the
+                receiver&#x27;s signal quality.</p>
+            </div>
+          </details>
+          <details class="question" data-section="15" data-level="Intermediate" id="q216">
+            <summary><span class="q-number">216</span><span>Compare single-mode and multimode fiber.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Single-mode fiber supports one principal spatial mode over its operating range; multimode fiber
+                supports multiple modes and can suffer modal dispersion. Actual reach depends on the fiber and
+                transceivers.</p>
+            </div>
+          </details>
+          <details class="question" data-section="15" data-level="Intermediate" id="q217">
+            <summary><span class="q-number">217</span><span>What is dispersion?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Pulse spreading because propagation differs by mode or wavelength. Spreading can cause neighboring
+                pulses to overlap and limit usable data rate or distance.</p>
+            </div>
+          </details>
+          <details class="question" data-section="15" data-level="Intermediate" id="q218">
+            <summary><span class="q-number">218</span><span>Compare a repeater with an amplifier.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>An amplifier boosts a waveform including its noise. A digital regenerative repeater can decide symbols
+                and recreate timing and signal levels, provided the incoming signal is still recoverable.</p>
+            </div>
+          </details>
+          <details class="question" data-section="15" data-level="Intermediate" id="q219">
+            <summary><span class="q-number">219</span><span>Why is fiber resistant to electromagnetic
+                interference?<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Information travels optically through a dielectric medium rather than by an electrical signal in a
+                conductor. End equipment can still be affected by electrical faults or interference.</p>
+            </div>
+          </details>
+          <details class="question" data-section="15" data-level="Intermediate" id="q220">
+            <summary><span class="q-number">220</span><span>Why do terrestrial microwave links often require line of
+                sight?<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Their directional high-frequency propagation is strongly affected by obstructions and path geometry.
+                Antenna alignment and adequate clearance are therefore important.</p>
+            </div>
+          </details>
+          <details class="question" data-section="15" data-level="Intermediate" id="q221">
+            <summary><span class="q-number">221</span><span>What is a satellite transponder?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Equipment that receives an uplink signal and retransmits it on a downlink, often with filtering,
+                amplification and frequency conversion. Its exact processing depends on the satellite design.</p>
+            </div>
+          </details>
+          <details class="question" data-section="15" data-level="Intermediate" id="q222">
+            <summary><span class="q-number">222</span><span>Why can a satellite link have large delay?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Signals travel a long physical path. Geostationary systems in particular have long propagation
+                distances; satellite orbit and routing determine the actual delay.</p>
+            </div>
+          </details>
+          <details class="question" data-section="15" data-level="Expert" id="q223">
+            <summary><span class="q-number">223</span><span>Can stronger amplification fully remove transmission
+                errors?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>No. Amplification cannot reconstruct information already lost in noise or distortion and may cause
+                clipping. Equalization, coding, regeneration or a better channel may be needed.</p>
+            </div>
+          </details>
+          <details class="question" data-section="15" data-level="Expert" id="q224">
+            <summary><span class="q-number">224</span><span>Why is shielded cable not automatically the best
+                installation?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Shield termination, grounding, connector quality, cost and environment matter. Poor installation can
+                negate the intended interference benefit.</p>
+            </div>
+          </details>
+          <details class="question" data-section="15" data-level="Expert" id="q225">
+            <summary><span class="q-number">225</span><span>Why does a published cable distance alone not determine link
+                performance?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Data rate, loss, capacitance, bandwidth, termination, transceiver capability and interference all
+                matter. Use a standard or device specification together with the actual installation conditions.</p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="16" aria-labelledby="topic-16">
+          <h3 id="topic-16">16 / Line coding and scrambling</h3>
+          <details class="question" data-section="16" data-level="Basic" id="q226">
+            <summary><span class="q-number">226</span><span>What is line coding?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Mapping digital data to a baseband signal pattern suitable for transmission. It differs from carrier
+                modulation such as ASK and from error-control coding such as Hamming coding.</p>
+            </div>
+          </details>
+          <details class="question" data-section="16" data-level="Basic" id="q227">
+            <summary><span class="q-number">227</span><span>What is NRZ-L?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Non-Return-to-Zero Level encoding represents bits using two signal levels held throughout the bit
+                interval. Which level means 0 or 1 must be declared.</p>
+            </div>
+          </details>
+          <details class="question" data-section="16" data-level="Basic" id="q228">
+            <summary><span class="q-number">228</span><span>What is NRZ-I?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Non-Return-to-Zero Invert encoding represents one binary value by a transition at the start of its
+                interval and the other by no transition. State the convention and initial level.</p>
+            </div>
+          </details>
+          <details class="question" data-section="16" data-level="Basic" id="q229">
+            <summary><span class="q-number">229</span><span>What is Manchester encoding?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A line code with a transition in the middle of every bit. The direction of that transition represents
+                the bit under a stated convention and also provides timing information.</p>
+            </div>
+          </details>
+          <details class="question" data-section="16" data-level="Basic" id="q230">
+            <summary><span class="q-number">230</span><span>What is AMI?<small class="level basic">Basic</small></span>
+            </summary>
+            <div class="answer">
+              <p>Alternate Mark Inversion represents zeros by zero level and successive ones by alternating positive and
+                negative pulses. It is a bipolar three-level line code.</p>
+            </div>
+          </details>
+          <details class="question" data-section="16" data-level="Intermediate" id="q231">
+            <summary><span class="q-number">231</span><span>Why can a long run of identical NRZ bits be
+                troublesome?<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Few or no transitions make receiver clock recovery difficult. Certain patterns also create DC or
+                low-frequency components that a channel may not pass well.</p>
+            </div>
+          </details>
+          <details class="question" data-section="16" data-level="Intermediate" id="q232">
+            <summary><span class="q-number">232</span><span>How does differential Manchester encode information?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>It always has a mid-bit transition for timing; the presence or absence of a transition at the bit
+                boundary encodes the bit under the chosen convention. It relies on transitions rather than absolute
+                polarity.</p>
+            </div>
+          </details>
+          <details class="question" data-section="16" data-level="Intermediate" id="q233">
+            <summary><span class="q-number">233</span><span>What is the purpose of scrambling in AMI systems?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Replace problematic runs, particularly long zero runs, with recognizable patterns containing
+                transitions. It helps timing while allowing the receiver to reconstruct the original data.</p>
+            </div>
+          </details>
+          <details class="question" data-section="16" data-level="Intermediate" id="q234">
+            <summary><span class="q-number">234</span><span>What does B8ZS replace?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>A run of eight zeros is replaced by 000VB0VB, where V is a deliberate bipolar violation and B is a
+                normal bipolar pulse. Actual pulse signs depend on the preceding nonzero pulse.</p>
+            </div>
+          </details>
+          <details class="question" data-section="16" data-level="Intermediate" id="q235">
+            <summary><span class="q-number">235</span><span>What does HDB3 replace?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>A run of four zeros is replaced by 000V or B00V. The choice depends on the parity of nonzero pulses
+                since the previous violation, preserving useful timing and DC balance.</p>
+            </div>
+          </details>
+          <details class="question" data-section="16" data-level="Intermediate" id="q236">
+            <summary><span class="q-number">236</span><span>What do B and V mean?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>B obeys ordinary AMI alternation relative to the preceding nonzero pulse. V deliberately violates it by
+                repeating that polarity, allowing the receiver to recognize a substitution.</p>
+            </div>
+          </details>
+          <details class="question" data-section="16" data-level="Intermediate" id="q237">
+            <summary><span class="q-number">237</span><span>Does scrambling automatically encrypt data?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>No. The substitution rules are designed for signal properties and are reversible by the receiver. They
+                do not by themselves provide cryptographic confidentiality.</p>
+            </div>
+          </details>
+          <details class="question" data-section="16" data-level="Expert" id="q238">
+            <summary><span class="q-number">238</span><span>Why must an examiner be told your Manchester
+                convention?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Textbooks and standards can assign opposite transition directions to 0 and 1. A waveform is not
+                meaningfully judged until the convention and timing boundaries are specified.</p>
+            </div>
+          </details>
+          <details class="question" data-section="16" data-level="Expert" id="q239">
+            <summary><span class="q-number">239</span><span>Is a bipolar violation always a transmission error?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Not in a deliberately scrambled code such as B8ZS or HDB3. A recognized substitution contains planned
+                violations; an unexpected violation may indicate an error.</p>
+            </div>
+          </details>
+          <details class="question" data-section="16" data-level="Expert" id="q240">
+            <summary><span class="q-number">240</span><span>Why can a line code with more transitions require more
+                bandwidth?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Faster waveform changes introduce higher-frequency content. Timing recovery improves, but the required
+                spectrum depends on pulse shape and how bandwidth is defined.</p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="17" aria-labelledby="topic-17">
+          <h3 id="topic-17">17 / Sampling, PCM and delta modulation</h3>
+          <details class="question" data-section="17" data-level="Basic" id="q241">
+            <summary><span class="q-number">241</span><span>What is sampling?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Measuring a continuous-time signal at discrete times. The samples still have continuous-valued
+                amplitude until quantization is applied.</p>
+            </div>
+          </details>
+          <details class="question" data-section="17" data-level="Basic" id="q242">
+            <summary><span class="q-number">242</span><span>What is quantization?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Mapping each sample amplitude to one of a finite set of levels. It introduces an amplitude error; it is
+                not simply the deletion of redundant binary bits.</p>
+            </div>
+          </details>
+          <details class="question" data-section="17" data-level="Basic" id="q243">
+            <summary><span class="q-number">243</span><span>What is PCM?<small class="level basic">Basic</small></span>
+            </summary>
+            <div class="answer">
+              <p>Pulse Code Modulation represents sampled and quantized amplitudes as binary words. Its basic operations
+                are sampling, quantization and binary encoding.</p>
+            </div>
+          </details>
+          <details class="question" data-section="17" data-level="Basic" id="q244">
+            <summary><span class="q-number">244</span><span>What is aliasing?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Different analog frequency components become indistinguishable after inadequate sampling. An anti-alias
+                low-pass filter removes unwanted components before the sampler.</p>
+            </div>
+          </details>
+          <details class="question" data-section="17" data-level="Basic" id="q245">
+            <summary><span class="q-number">245</span><span>What is delta modulation?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A scheme that represents the direction of change of a staircase approximation, commonly with one
+                up/down bit per sample and a fixed step size.</p>
+            </div>
+          </details>
+          <details class="question" data-section="17" data-level="Intermediate" id="q246">
+            <summary><span class="q-number">246</span><span>State the sampling requirement for a low-pass band-limited
+                signal.<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>The sampling frequency must exceed twice the highest relevant signal frequency for practical
+                reconstruction with suitable filtering. The textbook ideal limiting rate is 2 fmax.</p>
+            </div>
+          </details>
+          <details class="question" data-section="17" data-level="Intermediate" id="q247">
+            <summary><span class="q-number">247</span><span>What is the textbook minimum sampling rate for a 200 kHz
+                low-pass signal?<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>400,000 samples/s is the ideal Nyquist limit. A practical design uses margin and an anti-alias filter
+                rather than assuming arbitrary signals are safely captured exactly at the limit.</p>
+            </div>
+          </details>
+          <details class="question" data-section="17" data-level="Intermediate" id="q248">
+            <summary><span class="q-number">248</span><span>Find PCM bit rate for 8000 samples/s and 8
+                bits/sample.<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>8000 x 8 = 64,000 bit/s, or 64 kbit/s, before framing, synchronization or error-control overhead.</p>
+            </div>
+          </details>
+          <details class="question" data-section="17" data-level="Intermediate" id="q249">
+            <summary><span class="q-number">249</span><span>How many levels are available with n bits per sample?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>2^n. Eight bits provide 256 quantization levels. More levels can reduce quantization error for a fixed
+                amplitude range.</p>
+            </div>
+          </details>
+          <details class="question" data-section="17" data-level="Intermediate" id="q250">
+            <summary><span class="q-number">250</span><span>State the ideal uniform-quantizer SNR approximation.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>For a full-scale sine wave and ideal n-bit quantization, SQNR is approximately 6.02n + 1.76 dB. This is
+                not a universal SNR formula for any waveform or any noise source.</p>
+            </div>
+          </details>
+          <details class="question" data-section="17" data-level="Intermediate" id="q251">
+            <summary><span class="q-number">251</span><span>What is slope-overload distortion?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>In fixed-step delta modulation, the staircase cannot change fast enough to follow the input slope.
+                Increasing step size or sampling rate can help.</p>
+            </div>
+          </details>
+          <details class="question" data-section="17" data-level="Intermediate" id="q252">
+            <summary><span class="q-number">252</span><span>What is granular noise?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>The delta-modulator staircase repeatedly overshoots a slowly varying input when its step is too large.
+                Reducing the step helps but can worsen slope overload for fast changes.</p>
+            </div>
+          </details>
+          <details class="question" data-section="17" data-level="Expert" id="q253">
+            <summary><span class="q-number">253</span><span>Why use adaptive delta modulation?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>It changes the step size according to signal behavior, using larger steps for steep changes and smaller
+                steps for slowly varying regions. This addresses the fixed-step compromise.</p>
+            </div>
+          </details>
+          <details class="question" data-section="17" data-level="Expert" id="q254">
+            <summary><span class="q-number">254</span><span>Does one bit per sample guarantee lower bit rate than
+                PCM?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>No. Delta modulation may require much higher sampling frequency. Compare total bits per second and
+                achieved quality, not just bits per sample.</p>
+            </div>
+          </details>
+          <details class="question" data-section="17" data-level="Expert" id="q255">
+            <summary><span class="q-number">255</span><span>How many ideal bits are needed for at least 40 dB
+                full-scale-sine quantization SNR?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>n &gt;= (40-1.76)/6.02, about 6.35, so at least 7 bits. Real converter noise and distortion can require
+                additional nominal resolution.</p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="18" aria-labelledby="topic-18">
+          <h3 id="topic-18">18 / Multiplexing and transmission timing</h3>
+          <details class="question" data-section="18" data-level="Basic" id="q256">
+            <summary><span class="q-number">256</span><span>What is multiplexing in communication systems?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Combining multiple information streams for transport over a shared link while keeping them separable at
+                the receiver.</p>
+            </div>
+          </details>
+          <details class="question" data-section="18" data-level="Basic" id="q257">
+            <summary><span class="q-number">257</span><span>What is FDM?<small class="level basic">Basic</small></span>
+            </summary>
+            <div class="answer">
+              <p>Frequency Division Multiplexing assigns channels different frequency bands so they can occupy the link
+                at the same time.</p>
+            </div>
+          </details>
+          <details class="question" data-section="18" data-level="Basic" id="q258">
+            <summary><span class="q-number">258</span><span>What is TDM?<small class="level basic">Basic</small></span>
+            </summary>
+            <div class="answer">
+              <p>Time Division Multiplexing assigns channels separate time slots on a shared link. The receiver uses
+                timing and framing to recover the channels.</p>
+            </div>
+          </details>
+          <details class="question" data-section="18" data-level="Basic" id="q259">
+            <summary><span class="q-number">259</span><span>What is WDM?<small class="level basic">Basic</small></span>
+            </summary>
+            <div class="answer">
+              <p>Wavelength Division Multiplexing carries multiple optical channels using different wavelengths on one
+                fiber. It is the optical counterpart of separating channels by frequency.</p>
+            </div>
+          </details>
+          <details class="question" data-section="18" data-level="Basic" id="q260">
+            <summary><span class="q-number">260</span><span>What is a guard band?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A frequency gap between channels used to reduce interference when filters and spectra are not ideal. It
+                consumes spectrum without directly carrying payload.</p>
+            </div>
+          </details>
+          <details class="question" data-section="18" data-level="Intermediate" id="q261">
+            <summary><span class="q-number">261</span><span>Find FDM bandwidth for five 100 kHz channels with 10 kHz
+                gaps between adjacent channels.<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>There are four internal gaps, so bandwidth is 5 x 100 + 4 x 10 = 540 kHz, excluding any additional
+                outer guard bands.</p>
+            </div>
+          </details>
+          <details class="question" data-section="18" data-level="Intermediate" id="q262">
+            <summary><span class="q-number">262</span><span>Compare synchronous and statistical TDM.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Synchronous TDM assigns recurring slots even to idle sources. Statistical TDM allocates capacity to
+                active sources and typically needs channel identification and buffering.</p>
+            </div>
+          </details>
+          <details class="question" data-section="18" data-level="Intermediate" id="q263">
+            <summary><span class="q-number">263</span><span>Four 1 kbit/s inputs are bit-interleaved without overhead.
+                What is output rate?<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>4 kbit/s. Each frame contains one bit from each input, so it has four bits and repeats 1000 times per
+                second.</p>
+            </div>
+          </details>
+          <details class="question" data-section="18" data-level="Intermediate" id="q264">
+            <summary><span class="q-number">264</span><span>Add one framing bit to each of those frames. What
+                happens?<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Each frame now has five bits at 1000 frames/s, so line rate is 5 kbit/s and payload efficiency is 4/5 =
+                80 percent.</p>
+            </div>
+          </details>
+          <details class="question" data-section="18" data-level="Intermediate" id="q265">
+            <summary><span class="q-number">265</span><span>Compare synchronous and asynchronous serial
+                transmission.<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Synchronous transmission shares or recovers timing for a continuous stream or block. Asynchronous
+                character transmission uses start/stop framing and allows gaps; it still requires compatible bit timing
+                within each frame.</p>
+            </div>
+          </details>
+          <details class="question" data-section="18" data-level="Intermediate" id="q266">
+            <summary><span class="q-number">266</span><span>What is an isochronous requirement?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Delivery with timing suitable for a time-sensitive stream, such as audio/video. It concerns regular
+                timing or bounded delay variation and should not be confused with loss-free delivery.</p>
+            </div>
+          </details>
+          <details class="question" data-section="18" data-level="Intermediate" id="q267">
+            <summary><span class="q-number">267</span><span>How does QPSK help carry data at a given symbol rate?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Four phase states carry two bits per symbol. For the same gross bit rate and comparable pulse shaping,
+                its symbol rate is half that of BPSK.</p>
+            </div>
+          </details>
+          <details class="question" data-section="18" data-level="Expert" id="q268">
+            <summary><span class="q-number">268</span><span>Is a 1 Mbit/s 16-QAM stream guaranteed to fit inside 250
+                kHz?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>It has 250 ksymbols/s because each symbol carries four bits. Occupied bandwidth also depends on pulse
+                shaping, roll-off, filtering and guard bands; equating baud directly to hertz needs stated assumptions.
+              </p>
+            </div>
+          </details>
+          <details class="question" data-section="18" data-level="Expert" id="q269">
+            <summary><span class="q-number">269</span><span>Why must a TDM receiver synchronize to frame
+                boundaries?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Correct bit timing alone does not identify which channel owns a slot. A frame slip can deliver
+                valid-looking bits to the wrong output channel.</p>
+            </div>
+          </details>
+          <details class="question" data-section="18" data-level="Expert" id="q270">
+            <summary><span class="q-number">270</span><span>What happens when statistical TDM sources all become
+                busy?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>The aggregate offered load may exceed link capacity. Buffers grow, delay rises, and data can be dropped
+                or backpressured; statistical sharing does not create unlimited capacity.</p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="19" aria-labelledby="topic-19">
+          <h3 id="topic-19">19 / Error control, flow control, ARQ and HDLC</h3>
+          <details class="question" data-section="19" data-level="Basic" id="q271">
+            <summary><span class="q-number">271</span><span>What is error detection?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Checking received data for inconsistency using redundancy such as parity, checksum or CRC. Detection
+                alone does not establish which bits to repair.</p>
+            </div>
+          </details>
+          <details class="question" data-section="19" data-level="Basic" id="q272">
+            <summary><span class="q-number">272</span><span>What is a burst error?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Corruption extending from the first affected bit to the last within a span. Not every bit inside that
+                span must be wrong.</p>
+            </div>
+          </details>
+          <details class="question" data-section="19" data-level="Basic" id="q273">
+            <summary><span class="q-number">273</span><span>What is flow control?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Managing how much data a sender transmits so the receiver is not overwhelmed. It differs from error
+                control, which addresses damaged, lost or duplicated data.</p>
+            </div>
+          </details>
+          <details class="question" data-section="19" data-level="Basic" id="q274">
+            <summary><span class="q-number">274</span><span>What is ARQ?<small class="level basic">Basic</small></span>
+            </summary>
+            <div class="answer">
+              <p>Automatic Repeat reQuest uses acknowledgments, sequence numbers and timers to recover through
+                retransmission. It needs a return path or another acknowledgment mechanism.</p>
+            </div>
+          </details>
+          <details class="question" data-section="19" data-level="Basic" id="q275">
+            <summary><span class="q-number">275</span><span>What is stop-and-wait ARQ?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Send one frame and wait for acknowledgment before advancing. On timeout retransmit; sequence numbers
+                let the receiver recognize duplicates.</p>
+            </div>
+          </details>
+          <details class="question" data-section="19" data-level="Intermediate" id="q276">
+            <summary><span class="q-number">276</span><span>How do Go-Back-N and Selective Repeat differ?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Go-Back-N retransmits from an unacknowledged frame onward and normally discards out-of-order arrivals.
+                Selective Repeat buffers suitable out-of-order frames and retransmits the missing or damaged ones
+                individually.</p>
+            </div>
+          </details>
+          <details class="question" data-section="19" data-level="Intermediate" id="q277">
+            <summary><span class="q-number">277</span><span>Why are sequence numbers needed?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>They distinguish new data from duplicate retransmissions, especially when an acknowledgment is lost. A
+                correct receiver should not deliver the same data twice just because the sender timed out.</p>
+            </div>
+          </details>
+          <details class="question" data-section="19" data-level="Intermediate" id="q278">
+            <summary><span class="q-number">278</span><span>What is the window limit with three sequence bits?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>In the usual protocols, Go-Back-N allows sender window at most 2^3-1 = 7; Selective Repeat with equal
+                sender/receiver windows allows at most 2^(3-1) = 4 to avoid ambiguity after wraparound.</p>
+            </div>
+          </details>
+          <details class="question" data-section="19" data-level="Intermediate" id="q279">
+            <summary><span class="q-number">279</span><span>What is a CRC?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>A polynomial-based error check computed by modulo-2 division. The sender appends a remainder; the
+                receiver checks the resulting codeword using the same generator and conventions.</p>
+            </div>
+          </details>
+          <details class="question" data-section="19" data-level="Intermediate" id="q280">
+            <summary><span class="q-number">280</span><span>Why is XOR used in CRC division?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Addition and subtraction over binary polynomial coefficients are both XOR, with no carries or borrows.
+                This is different from ordinary integer division.</p>
+            </div>
+          </details>
+          <details class="question" data-section="19" data-level="Intermediate" id="q281">
+            <summary><span class="q-number">281</span><span>What are HDLC&#x27;s flag and stuffing rule?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>The flag is 01111110. Within the frame content, insert a zero after five consecutive ones; the receiver
+                removes such stuffed zeros. Flags themselves are delimiters, not stuffed payload.</p>
+            </div>
+          </details>
+          <details class="question" data-section="19" data-level="Intermediate" id="q282">
+            <summary><span class="q-number">282</span><span>What are HDLC I, S and U frames?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Information frames carry user data and control information; Supervisory frames support flow/error
+                control; Unnumbered frames support link management and other control functions. The control field
+                identifies the type.</p>
+            </div>
+          </details>
+          <details class="question" data-section="19" data-level="Expert" id="q283">
+            <summary><span class="q-number">283</span><span>Why does stop-and-wait perform poorly on a long-delay
+                link?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>The sender is idle while waiting. With negligible ACK transmission time and no errors, utilization is
+                approximately 1/(1+2a), where a is propagation time divided by frame transmission time.</p>
+            </div>
+          </details>
+          <details class="question" data-section="19" data-level="Expert" id="q284">
+            <summary><span class="q-number">284</span><span>Can a zero CRC remainder prove there was no
+                corruption?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>No. Some error patterns are multiples of the generator and remain undetected. The generator and message
+                length determine detection guarantees; a CRC is also not a cryptographic authenticity check.</p>
+            </div>
+          </details>
+          <details class="question" data-section="19" data-level="Expert" id="q285">
+            <summary><span class="q-number">285</span><span>How does parity compare with Hamming and CRC?<small
+                  class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>A single parity bit detects odd-count bit flips but cannot locate one. Hamming adds structured checks
+                for single-error correction. CRC is designed for strong detection, including specified burst-error
+                guarantees, and is usually paired with retransmission rather than used to locate errors.</p>
+            </div>
+          </details>
+        </section>
+        <section class="question-group" data-group="20" aria-labelledby="topic-20">
+          <h3 id="topic-20">20 / Switching, legacy networks and expert synthesis</h3>
+          <details class="question" data-section="20" data-level="Basic" id="q286">
+            <summary><span class="q-number">286</span><span>What is circuit switching?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Establishing a reserved end-to-end communication path or allocation for a session. Setup, data transfer
+                and release are the usual phases.</p>
+            </div>
+          </details>
+          <details class="question" data-section="20" data-level="Basic" id="q287">
+            <summary><span class="q-number">287</span><span>What is packet switching?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Dividing data into packets that share network resources with other traffic. Packets may experience
+                queueing, loss or different routes depending on the service.</p>
+            </div>
+          </details>
+          <details class="question" data-section="20" data-level="Basic" id="q288">
+            <summary><span class="q-number">288</span><span>What is message switching?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>Store-and-forward handling of an entire message at each intermediate node. It can require substantial
+                storage and introduce long delay compared with forwarding smaller packets.</p>
+            </div>
+          </details>
+          <details class="question" data-section="20" data-level="Basic" id="q289">
+            <summary><span class="q-number">289</span><span>What is a datagram network?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A connectionless packet network where packets are forwarded independently using destination
+                information. IP provides a datagram service.</p>
+            </div>
+          </details>
+          <details class="question" data-section="20" data-level="Basic" id="q290">
+            <summary><span class="q-number">290</span><span>What is a virtual circuit?<small
+                  class="level basic">Basic</small></span></summary>
+            <div class="answer">
+              <p>A logical connection established through a packet network, with forwarding state or identifiers along a
+                chosen path. It is not necessarily a dedicated physical circuit.</p>
+            </div>
+          </details>
+          <details class="question" data-section="20" data-level="Intermediate" id="q291">
+            <summary><span class="q-number">291</span><span>Compare virtual-circuit and datagram delivery.<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Virtual-circuit service establishes connection state before or as part of use and identifies traffic by
+                a circuit/connection label. Datagram service does not require such per-connection setup for basic
+                forwarding.</p>
+            </div>
+          </details>
+          <details class="question" data-section="20" data-level="Intermediate" id="q292">
+            <summary><span class="q-number">292</span><span>What is ATM and what is its cell size?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Asynchronous Transfer Mode is a connection-oriented cell-switching technology. Each cell has 53 bytes:
+                a 5-byte header and 48-byte payload.</p>
+            </div>
+          </details>
+          <details class="question" data-section="20" data-level="Intermediate" id="q293">
+            <summary><span class="q-number">293</span><span>Why did ATM use small fixed-length cells?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Fixed short units simplify switching and bound the serialization delay of one cell, helping mixed
+                voice/data traffic. The design incurs header overhead and adaptation complexity.</p>
+            </div>
+          </details>
+          <details class="question" data-section="20" data-level="Intermediate" id="q294">
+            <summary><span class="q-number">294</span><span>What are SONET and SDH?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Standardized synchronous transport hierarchies widely associated with optical networks. They organize
+                rates, framing and multiplexing; they are more than simple electrical-to-optical conversion.</p>
+            </div>
+          </details>
+          <details class="question" data-section="20" data-level="Intermediate" id="q295">
+            <summary><span class="q-number">295</span><span>What is DSL?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Digital Subscriber Line is a family of technologies carrying digital communication over copper
+                subscriber loops. Reach and data rate depend on the DSL type, line condition and interference.</p>
+            </div>
+          </details>
+          <details class="question" data-section="20" data-level="Intermediate" id="q296">
+            <summary><span class="q-number">296</span><span>What is ISDN?<small
+                  class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Integrated Services Digital Network, a digital telecommunications service family supporting integrated
+                voice/data services. A common basic-rate interface is described as 2B+D; it is a legacy syllabus topic
+                here.</p>
+            </div>
+          </details>
+          <details class="question" data-section="20" data-level="Intermediate" id="q297">
+            <summary><span class="q-number">297</span><span>What should you say if asked which modulation is
+                &#x27;best&#x27;?<small class="level intermediate">Intermediate</small></span></summary>
+            <div class="answer">
+              <p>Ask what matters: required bit rate, bandwidth, power, channel noise, receiver complexity or phase
+                synchronization. ASK, FSK and PSK have different tradeoffs; no scheme is universally best.</p>
+            </div>
+          </details>
+          <details class="question" data-section="20" data-level="Expert" id="q298">
+            <summary><span class="q-number">298</span><span>How would you troubleshoot any failed lab
+                systematically?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>Confirm the intended input and expected output, then inspect power/reference, connections, component
+                function, settings and measurement points. Test one block at a time with a simple known input and change
+                one variable per trial.</p>
+            </div>
+          </details>
+          <details class="question" data-section="20" data-level="Expert" id="q299">
+            <summary><span class="q-number">299</span><span>Why is a plausible screenshot insufficient proof of a
+                correct experiment?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>One input can accidentally produce the expected output in a faulty circuit. Demonstrate multiple cases,
+                including boundary and fault cases, and connect each observation to a truth table, equation or known
+                message.</p>
+            </div>
+          </details>
+          <details class="question" data-section="20" data-level="Expert" id="q300">
+            <summary><span class="q-number">300</span><span>How should you answer when the notebook conflicts with the
+                circuit?<small class="level expert">Expert</small></span></summary>
+            <div class="answer">
+              <p>State the standard principle, identify the specific mismatch, and verify the actual component or
+                configuration. For example: &#x27;The two FSK tones must differ; I would check both generator
+                frequencies before accepting this output.&#x27;</p>
+            </div>
+          </details>
+        </section>
+      </div>
+      <p class="empty" id="empty" hidden>No questions match those filters. Try a shorter search or reset the filters.
+      </p>
+    </section>
+    <section class="section" aria-label="PDF preview">
+      <details class="pdf-box">
+        <summary>Preview the complete 48-page study guide</summary>
+        <p class="pdf-help">If the preview is unavailable, <a href="./DT-Viva-Questions-Answers.pdf" target="_blank"
+            rel="noopener noreferrer">open the PDF in a new tab</a> or use Download Viva PDF. The PDF must be deployed
+          beside this HTML file.</p><iframe class="pdf-viewer" src="./DT-Viva-Questions-Answers.pdf#view=FitH"
+          title="Data and Telecommunication viva study guide" loading="lazy"></iframe>
+      </details>
+    </section>
+    <p class="source-note">Prepared from both uploaded DT practical notebooks, chapter notes and lecture slides. This is
+      a broad study bank, not a guarantee of every possible viva question. The PDF includes source references and flags
+      ambiguous handwritten instructions.</p>
+  </main>
+  <footer class="footer">
+    <div class="container"><span>CSE Lab Experiments · Semester 5</span><a href="#main">Back to top ↑</a></div>
+  </footer>
+  <script>
+    'use strict';
+    const search = document.getElementById('search');
+    const level = document.getElementById('level');
+    const topic = document.getElementById('topic');
+    const rows = Array.from(document.querySelectorAll('.question'));
+    const groups = Array.from(document.querySelectorAll('.question-group'));
+    const count = document.getElementById('count');
+    const empty = document.getElementById('empty');
+    const searchable = new Map(rows.map(row => [row, row.textContent.toLowerCase()]));
+    function filterQuestions() {
+      const terms = search.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+      let visible = 0;
+      rows.forEach(row => {
+        const match = (!level.value || row.dataset.level === level.value)
+          && (!topic.value || row.dataset.section === topic.value)
+          && terms.every(term => searchable.get(row).includes(term));
+        row.hidden = !match;
+        if (match) visible++;
+      });
+      groups.forEach(group => { group.hidden = !group.querySelector('.question:not([hidden])'); });
+      count.textContent = `Showing ${visible} of ${rows.length} questions`;
+      empty.hidden = visible !== 0;
+    }
+    function resetFilters() { search.value = ''; level.value = ''; topic.value = ''; filterQuestions(); }
+    search.addEventListener('input', filterQuestions);
+    level.addEventListener('change', filterQuestions);
+    topic.addEventListener('change', filterQuestions);
+    document.getElementById('reset').addEventListener('click', () => { resetFilters(); search.focus(); });
+    document.getElementById('expand').addEventListener('click', () => rows.filter(row => !row.hidden).forEach(row => { row.open = true; }));
+    document.getElementById('collapse').addEventListener('click', () => rows.forEach(row => { row.open = false; }));
+    // Topic shortcuts must remain reachable after filters have hidden a section.
+    document.querySelectorAll('.card a').forEach(link => link.addEventListener('click', resetFilters));
+    function revealHashTarget() {
+      const id = location.hash.slice(1);
+      const target = document.getElementById(id);
+      if (target && (target.classList.contains('question') || id.startsWith('topic-'))) {
+        resetFilters();
+        if (target.classList.contains('question')) target.open = true;
+        target.scrollIntoView({ block: 'start' });
+      }
+    }
+    window.addEventListener('hashchange', revealHashTarget);
+    document.getElementById('filter-panel').hidden = false;
+    filterQuestions();
+    if (location.hash) revealHashTarget();
+  </script>
 </body>
 
 </html>
