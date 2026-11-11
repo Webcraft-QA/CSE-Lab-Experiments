@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>OS Incourse Exam | Five Practicals & Viva</title>
+    <meta name="description"
+        content="FCFS, SJF, Round Robin, MFT and MVT exam preparation: algorithms, complete C code, verified sample outputs and focused viva answers.">
+    <style>
+        :root {
+            color-scheme: light
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: #f2f5f9;
+            color: #18283a;
+            font: 16px/1.65 system-ui, sans-serif
+        }
+
+        header,
+        main,
+        footer {
+            max-width: 1080px;
+            margin: auto;
+            padding: 24px
+        }
+
+        header {
+            padding-top: 56px
+        }
+
+        h1 {
+            font-size: clamp(32px, 5vw, 54px);
+            line-height: 1.1;
+            max-width: 850px
+        }
+
+        h2 {
+            font-size: 28px
+        }
+
+        h3 {
+            margin-top: 28px
+        }
+
+        a {
+            color: #1750a4;
+            text-underline-offset: 3px
+        }
+
+        a:focus-visible,
+        summary:focus-visible,
+        input:focus-visible {
+            outline: 3px solid #168272;
+            outline-offset: 3px
+        }
+
+        .eyebrow {
+            color: #226a64;
+            font-size: 12px;
+            letter-spacing: .12em;
+            font-weight: 700
+        }
+
+        .links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        .button {
+            padding: 12px 18px;
+            background: #153a5b;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 24px 0
+        }
+
+        nav a {
+            background: white;
+            padding: 8px 14px;
+            border: 1px solid #ccd7e1;
+            border-radius: 6px
+        }
+
+        article,
+        .note {
+            background: white;
+            border: 1px solid #d9e2ec;
+            border-radius: 14px;
+            padding: 28px;
+            margin: 24px 0
+        }
+
+        pre {
+            padding: 20px;
+            background: #10283b;
+            color: #eef6ff;
+            overflow: auto;
+            border-radius: 8px;
+            font: 13px/1.65 ui-monospace, monospace
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 600;
+            padding: 13px 0
+        }
+
+        details {
+            border-bottom: 1px solid #d9e2ec
+        }
+
+        details p {
+            margin-top: 0
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            font: inherit;
+            border: 1px solid #8b9bab;
+            border-radius: 8px
+        }
+
+        footer {
+            color: #52677c
+        }
+
+        .skip {
+            position: absolute;
+            left: 12px;
+            top: -100px
+        }
+
+        .skip:focus {
+            top: 12px
+        }
+
+        @media(max-width:600px) {
+
+            article,
+            .note {
+                padding: 18px
+            }
+
+            header,
+            main,
+            footer {
+                padding: 16px
+            }
+
+            header {
+                padding-top: 40px
+            }
+        }
+
+        @media print {
+
+            nav,
+            .links,
+            .search,
+            .skip {
+                display: none
+            }
+
+            body {
+                background: white
+            }
+
+            article {
+                break-before: page;
+                border: 0
+            }
+
+            pre {
+                white-space: pre-wrap;
+                color: black;
+                background: #eee;
+                font-size: 9px
+            }
+
+            details p {
+                display: block
+            }
+        }
+    </style>
+</head>
+
+<body><a class="skip" href="#main">Skip to study guide</a>
+    <header><span class="eyebrow">SEMESTER 5 / OPERATING SYSTEMS</span>
+        <h1>Five practicals.<br>One focused exam pack.</h1>
+        <p>Project name, description, algorithm, source code, input and output - followed by viva preparation.</p>
+        <div class="links"><a class="button" href="OS-Incourse-Exam-Guide.pdf" download>Download PDF guide</a><a
+                class="button" href="OS-Incourse-C-Programs.zip" download>Download C programs</a></div>
+    </header>
+    <main id="main">
+        <nav aria-label="Topics"><a href="#fcfs">FCFS CPU Scheduling</a><a href="#sjf">Nonpreemptive SJF CPU
+                Scheduling</a><a href="#round_robin">Round Robin CPU Scheduling</a><a href="#mft">MFT Memory
+                Management</a><a href="#mvt">MVT Memory Management</a><a href="#viva">Common viva</a></nav>
+        <aside class="note">
+            <h2>Read these assumptions first</h2>
+            <p>Scope: FCFS, nonpreemptive SJF, Round Robin, MFT and MVT only. Scheduling assumes all arrival times are
+                zero, one CPU burst per process and no I/O or context-switch cost. Memory values use one consistent unit
+                (for example KB) and represent memory available to processes after any OS reservation.</p>
+            <p>TAT = CT - AT; WT = TAT - BT; RT = first start - AT. Here AT = 0, so TAT = CT. Do not use first start as
+                RR waiting time. MFT internal waste excludes empty partitions and tail memory. MVT remaining free memory
+                is not automatically external fragmentation. These are teaching simulations, not actual OS resource
+                managers.</p>
+            <p>Compile each source separately: <code>gcc -std=c11 -Wall -Wextra fcfs.c -o fcfs</code>. Run
+                <code>./fcfs &lt; fcfs.in</code> on Linux/WSL. Use the matching filename for the other programs.
+            </p>
+        </aside>
+        <div class="search"><label for="search">Search viva questions and answers</label><input id="search"
+                type="search" placeholder="Try quantum, fragmentation or waiting time">
+            <p id="count" aria-live="polite"></p>
+        </div>
+        <article id="fcfs"><span class="eyebrow">PRACTICAL 01</span>
+            <h2>FCFS CPU Scheduling</h2>
+            <h3>1. Project name</h3>
+            <p>Implementation of FCFS CPU Scheduling using C</p>
+            <h3>2. Description</h3>
+            <p>Simulate First Come First Served scheduling and calculate waiting and turnaround times. All processes
+                arrive at time zero, so input order is the service order. Each process runs to completion.</p>
+            <h3>3. Algorithm</h3>
+            <ol>
+                <li>Start; read n and n positive burst times.</li>
+                <li>Set time = 0 and totals = 0.</li>
+                <li>For each process in input order, set WT = time.</li>
+                <li>Add BT to time; set CT = time and TAT = CT.</li>
+                <li>Add WT and TAT to their totals.</li>
+                <li>Print the process table and averages; stop.</li>
+            </ol>
+            <h3>4. Source code</h3>
+            <pre><code>/* Standalone C11 teaching simulator. Input formats: README.md. */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;errno.h&gt;
+
+/* Read bounded integer tokens; reject malformed or out-of-range input. */
+static int read_int(const char *label, int low, int high) {
+    char token[64], *end;
+    long value;
+    fprintf(stderr, &quot;%s [%d..%d]: &quot;, label, low, high);
+    if (scanf(&quot;%63s&quot;, token) != 1) {
+        fprintf(stderr, &quot;Missing input.\n&quot;); exit(EXIT_FAILURE);
+    }
+    errno = 0;
+    value = strtol(token, &amp;end, 10);
+    if (errno || *end || value &lt; low || value &gt; high) {
+        fprintf(stderr, &quot;Invalid input: %s\n&quot;, token);
+        exit(EXIT_FAILURE);
+    }
+    return (int)value;
+}
+
+/* All arrivals are zero; no I/O or context-switch cost. */
+int main(void) {
+    int n = read_int(&quot;Process count&quot;, 1, 50);
+    int bt[50], order[50], ct[50], wt[50], first[50];
+    int time = 0;
+    double sum_wt = 0, sum_tat = 0;
+    for (int i = 0; i &lt; n; ++i) {
+        bt[i] = read_int(&quot;Burst&quot;, 1, 1000);
+        order[i] = i;
+    }
+    for (int k = 0; k &lt; n; ++k) {
+        int i = order[k];
+        first[i] = wt[i] = time;
+        printf(&quot;RUN P%d %d %d\n&quot;, i+1, time, time+bt[i]);
+        time += bt[i]; ct[i] = time;
+    }
+    puts(&quot;PID BT CT TAT WT RT&quot;);
+    for (int i = 0; i &lt; n; ++i) {
+        printf(&quot;P%d %d %d %d %d %d\n&quot;, i+1, bt[i], ct[i],
+               ct[i], wt[i], first[i]);
+        sum_wt += wt[i]; sum_tat += ct[i];
+    }
+    printf(&quot;AVG_WT %.6f AVG_TAT %.6f\n&quot;, sum_wt/n, sum_tat/n);
+    return 0;
+}
+</code></pre>
+            <h3>5. Input</h3>
+            <p>n, then n burst times.</p>
+            <pre>3
+5 3 2
+</pre>
+            <h3>6. Output</h3>
+            <p>Exact stdout; interactive prompts omitted. RUN = process, start, end. RT = response time.</p>
+            <pre>RUN P1 0 5
+RUN P2 5 8
+RUN P3 8 10
+PID BT CT TAT WT RT
+P1 5 5 5 0 0
+P2 3 8 8 5 5
+P3 2 10 10 8 8
+AVG_WT 4.333333 AVG_TAT 7.666667
+</pre>
+            <h3>Worked explanation</h3>
+            <p>P1 runs 0-5, P2 runs 5-8, P3 runs 8-10. WT = 0, 5, 8. Average WT = 13/3 = 4.33. Average TAT = 23/3 =
+                7.67.</p>
+            <h3>Viva preparation</h3>
+            <details class="qa">
+                <summary>Is FCFS preemptive?</summary>
+                <p>No. It does not interrupt a burst to serve another ready process.</p>
+            </details>
+            <details class="qa">
+                <summary>Which queue rule is used?</summary>
+                <p>FIFO: First In, First Out.</p>
+            </details>
+            <details class="qa">
+                <summary>What is the convoy effect?</summary>
+                <p>Short processes wait behind a long process.</p>
+            </details>
+            <details class="qa">
+                <summary>Why is the first WT zero?</summary>
+                <p>The CPU is available and all arrivals are zero.</p>
+            </details>
+            <details class="qa">
+                <summary>Does FCFS cause starvation?</summary>
+                <p>Not for a queued process when jobs ahead finish in finite time.</p>
+            </details>
+            <details class="qa">
+                <summary>What if arrivals differ?</summary>
+                <p>Use start = max(previous CT, AT), CT = start + BT and WT = start - AT; order by arrival.</p>
+            </details>
+            <details class="qa">
+                <summary>What is its complexity here?</summary>
+                <p>O(n) time and O(n) array storage.</p>
+            </details>
+            <details class="qa">
+                <summary>Why is input order used?</summary>
+                <p>All arrivals tie at zero; input order is the chosen tie rule.</p>
+            </details>
+        </article>
+        <article id="sjf"><span class="eyebrow">PRACTICAL 02</span>
+            <h2>Nonpreemptive SJF CPU Scheduling</h2>
+            <h3>1. Project name</h3>
+            <p>Implementation of Nonpreemptive SJF CPU Scheduling using C</p>
+            <h3>2. Description</h3>
+            <p>Simulate Shortest Job First scheduling. All processes arrive at time zero. Select shorter bursts first;
+                equal bursts retain input order. Each selected process runs to completion.</p>
+            <h3>3. Algorithm</h3>
+            <ol>
+                <li>Start; read n and burst times; store each original process ID.</li>
+                <li>Create an order array containing the process indices.</li>
+                <li>Stable-sort the order array by increasing burst time.</li>
+                <li>Set time = 0. Visit processes in sorted order.</li>
+                <li>Set WT = time, add BT to time and set CT = TAT = time.</li>
+                <li>Print the table with original IDs and the averages; stop.</li>
+            </ol>
+            <h3>4. Source code</h3>
+            <pre><code>/* Standalone C11 teaching simulator. Input formats: README.md. */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;errno.h&gt;
+
+/* Read bounded integer tokens; reject malformed or out-of-range input. */
+static int read_int(const char *label, int low, int high) {
+    char token[64], *end;
+    long value;
+    fprintf(stderr, &quot;%s [%d..%d]: &quot;, label, low, high);
+    if (scanf(&quot;%63s&quot;, token) != 1) {
+        fprintf(stderr, &quot;Missing input.\n&quot;); exit(EXIT_FAILURE);
+    }
+    errno = 0;
+    value = strtol(token, &amp;end, 10);
+    if (errno || *end || value &lt; low || value &gt; high) {
+        fprintf(stderr, &quot;Invalid input: %s\n&quot;, token);
+        exit(EXIT_FAILURE);
+    }
+    return (int)value;
+}
+
+/* All arrivals are zero; no I/O or context-switch cost. */
+int main(void) {
+    int n = read_int(&quot;Process count&quot;, 1, 50);
+    int bt[50], order[50], ct[50], wt[50], first[50];
+    int time = 0;
+    double sum_wt = 0, sum_tat = 0;
+    for (int i = 0; i &lt; n; ++i) {
+        bt[i] = read_int(&quot;Burst&quot;, 1, 1000);
+        order[i] = i;
+    }
+    /* Stable ascending-key insertion sort; IDs stay attached to data. */
+    for (int i = 1; i &lt; n; ++i) {
+        int x = order[i], j = i;
+        while (j &gt; 0 &amp;&amp; bt[order[j-1]] &gt; bt[x]) {
+            order[j] = order[j-1]; --j;
+        }
+        order[j] = x;
+    }
+    for (int k = 0; k &lt; n; ++k) {
+        int i = order[k];
+        first[i] = wt[i] = time;
+        printf(&quot;RUN P%d %d %d\n&quot;, i+1, time, time+bt[i]);
+        time += bt[i]; ct[i] = time;
+    }
+    puts(&quot;PID BT CT TAT WT RT&quot;);
+    for (int i = 0; i &lt; n; ++i) {
+        printf(&quot;P%d %d %d %d %d %d\n&quot;, i+1, bt[i], ct[i],
+               ct[i], wt[i], first[i]);
+        sum_wt += wt[i]; sum_tat += ct[i];
+    }
+    printf(&quot;AVG_WT %.6f AVG_TAT %.6f\n&quot;, sum_wt/n, sum_tat/n);
+    return 0;
+}
+</code></pre>
+            <h3>5. Input</h3>
+            <p>n, then n burst times.</p>
+            <pre>3
+5 3 2
+</pre>
+            <h3>6. Output</h3>
+            <p>Exact stdout; interactive prompts omitted. RUN = process, start, end. RT = response time.</p>
+            <pre>RUN P3 0 2
+RUN P2 2 5
+RUN P1 5 10
+PID BT CT TAT WT RT
+P1 5 10 10 5 5
+P2 3 5 5 2 2
+P3 2 2 2 0 0
+AVG_WT 2.333333 AVG_TAT 5.666667
+</pre>
+            <h3>Worked explanation</h3>
+            <p>Order: P3 (0-2), P2 (2-5), P1 (5-10). WT in original ID order = 5, 2, 0. Average WT = 7/3 = 2.33; average
+                TAT = 17/3 = 5.67.</p>
+            <h3>Viva preparation</h3>
+            <details class="qa">
+                <summary>Why choose the shortest burst?</summary>
+                <p>With all jobs ready and bursts known, this order minimizes average waiting time.</p>
+            </details>
+            <details class="qa">
+                <summary>What is the preemptive counterpart?</summary>
+                <p>Shortest Remaining Time First, or SRTF.</p>
+            </details>
+            <details class="qa">
+                <summary>Can SJF cause starvation?</summary>
+                <p>Yes, in an ongoing workload if short jobs continually arrive ahead of a long job. The finite batch
+                    here finishes.</p>
+            </details>
+            <details class="qa">
+                <summary>Why sort indices instead of changing IDs?</summary>
+                <p>The order array selects execution order while burst times remain attached to original process IDs.
+                </p>
+            </details>
+            <details class="qa">
+                <summary>What if bursts tie?</summary>
+                <p>Stable insertion sort preserves input order by shifting only strictly larger bursts.</p>
+            </details>
+            <details class="qa">
+                <summary>Are bursts known in real systems?</summary>
+                <p>Usually they must be estimated.</p>
+            </details>
+            <details class="qa">
+                <summary>Does one global sort handle differing arrivals?</summary>
+                <p>No. At each decision, choose only among processes already ready.</p>
+            </details>
+            <details class="qa">
+                <summary>What is the sort complexity?</summary>
+                <p>Worst-case O(n squared) time; scheduling after sorting is O(n).</p>
+            </details>
+        </article>
+        <article id="round_robin"><span class="eyebrow">PRACTICAL 03</span>
+            <h2>Round Robin CPU Scheduling</h2>
+            <h3>1. Project name</h3>
+            <p>Implementation of Round Robin CPU Scheduling using C</p>
+            <h3>2. Description</h3>
+            <p>Simulate preemptive Round Robin scheduling. All processes arrive at time zero. Each unfinished process
+                receives up to one time quantum per turn, in cyclic input order.</p>
+            <h3>3. Algorithm</h3>
+            <ol>
+                <li>Start; read n, positive burst times and a positive quantum.</li>
+                <li>Copy bursts to remaining[]; set time = done = 0.</li>
+                <li>Scan processes cyclically, skipping completed processes.</li>
+                <li>Set run = minimum(remaining time, quantum).</li>
+                <li>Increase time by run and decrease remaining time by run.</li>
+                <li>When remaining becomes zero, record CT and increase done.</li>
+                <li>Repeat until done = n; calculate TAT = CT and WT = CT - BT.</li>
+                <li>Display results and averages; stop.</li>
+            </ol>
+            <h3>4. Source code</h3>
+            <pre><code>/* Standalone C11 teaching simulator. Input formats: README.md. */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;errno.h&gt;
+
+/* Read bounded integer tokens; reject malformed or out-of-range input. */
+static int read_int(const char *label, int low, int high) {
+    char token[64], *end;
+    long value;
+    fprintf(stderr, &quot;%s [%d..%d]: &quot;, label, low, high);
+    if (scanf(&quot;%63s&quot;, token) != 1) {
+        fprintf(stderr, &quot;Missing input.\n&quot;); exit(EXIT_FAILURE);
+    }
+    errno = 0;
+    value = strtol(token, &amp;end, 10);
+    if (errno || *end || value &lt; low || value &gt; high) {
+        fprintf(stderr, &quot;Invalid input: %s\n&quot;, token);
+        exit(EXIT_FAILURE);
+    }
+    return (int)value;
+}
+
+/* All arrivals zero; initial ready order P1..Pn; zero switching cost. */
+int main(void) {
+    int n = read_int(&quot;Process count&quot;, 1, 50);
+    int bt[50], remaining[50], ct[50], first[50];
+    int time = 0, done = 0;
+    double sw = 0, st = 0;
+    for (int i = 0; i &lt; n; ++i) {
+        bt[i] = remaining[i] = read_int(&quot;Burst&quot;, 1, 1000);
+        first[i] = -1;
+    }
+    int quantum = read_int(&quot;Quantum&quot;, 1, 1000);
+    while (done &lt; n) {
+        for (int i = 0; i &lt; n; ++i) {
+            if (!remaining[i]) continue;
+            if (first[i] == -1) first[i] = time;
+            int run = remaining[i] &lt; quantum ? remaining[i] : quantum;
+            printf(&quot;RUN P%d %d %d\n&quot;, i+1, time, time+run);
+            time += run; remaining[i] -= run;
+            if (!remaining[i]) { ct[i] = time; ++done; }
+        }
+    }
+    puts(&quot;PID BT CT TAT WT RT&quot;);
+    for (int i = 0; i &lt; n; ++i) {
+        int wt = ct[i] - bt[i];
+        printf(&quot;P%d %d %d %d %d %d\n&quot;, i+1, bt[i], ct[i], ct[i], wt, first[i]);
+        sw += wt; st += ct[i];
+    }
+    printf(&quot;AVG_WT %.6f AVG_TAT %.6f\n&quot;, sw/n, st/n);
+    return 0;
+}
+</code></pre>
+            <h3>5. Input</h3>
+            <p>n, then n burst times, then quantum.</p>
+            <pre>3
+5 3 2
+2
+</pre>
+            <h3>6. Output</h3>
+            <p>Exact stdout; interactive prompts omitted. RUN = process, start, end. RT = response time.</p>
+            <pre>RUN P1 0 2
+RUN P2 2 4
+RUN P3 4 6
+RUN P1 6 8
+RUN P2 8 9
+RUN P1 9 10
+PID BT CT TAT WT RT
+P1 5 10 10 5 0
+P2 3 9 9 6 2
+P3 2 6 6 4 4
+AVG_WT 5.000000 AVG_TAT 8.333333
+</pre>
+            <h3>Worked explanation</h3>
+            <p>With quantum 2: P1 0-2; P2 2-4; P3 4-6; P1 6-8; P2 8-9; P1 9-10. CT = 10, 9, 6; WT = 5, 6, 4. Average WT
+                = 5.00; average TAT = 8.33.</p>
+            <h3>Viva preparation</h3>
+            <details class="qa">
+                <summary>What is a quantum?</summary>
+                <p>The maximum CPU time granted in one turn.</p>
+            </details>
+            <details class="qa">
+                <summary>What does preemption mean?</summary>
+                <p>The OS interrupts a running process, saves its state and lets another run. The interrupted process
+                    resumes later.</p>
+            </details>
+            <details class="qa">
+                <summary>Why keep original burst times?</summary>
+                <p>Remaining times decrease; original bursts are required for WT = CT - BT.</p>
+            </details>
+            <details class="qa">
+                <summary>What if the quantum is very large?</summary>
+                <p>If it is at least every burst, this model behaves like FCFS.</p>
+            </details>
+            <details class="qa">
+                <summary>What if the quantum is very small?</summary>
+                <p>Response can be quicker, but real context-switch overhead increases.</p>
+            </details>
+            <details class="qa">
+                <summary>Why reject zero quantum?</summary>
+                <p>Execution would make no progress and the loop would not terminate.</p>
+            </details>
+            <details class="qa">
+                <summary>Is response time equal to waiting time?</summary>
+                <p>Not generally. Response is time before first execution; WT includes waiting between turns.</p>
+            </details>
+            <details class="qa">
+                <summary>Can a turn be shorter than the quantum?</summary>
+                <p>Yes, when the remaining burst is smaller.</p>
+            </details>
+            <details class="qa">
+                <summary>Why use a repeated scan?</summary>
+                <p>All processes arrive at zero and unfinished jobs remain in fixed cyclic order.</p>
+            </details>
+            <details class="qa">
+                <summary>What does done count?</summary>
+                <p>Processes whose remaining burst has reached zero.</p>
+            </details>
+        </article>
+        <article id="mft"><span class="eyebrow">PRACTICAL 04</span>
+            <h2>MFT Memory Management</h2>
+            <h3>1. Project name</h3>
+            <p>Implementation of MFT Memory Management using C</p>
+            <h3>2. Description</h3>
+            <p>Simulate Multiprogramming with a Fixed Number of Tasks using equal fixed partitions. Each admitted
+                process occupies one partition. Report internal fragmentation, unused partitions and the unpartitioned
+                tail separately.</p>
+            <h3>3. Algorithm</h3>
+            <ol>
+                <li>Start; read total available memory, partition size and process count.</li>
+                <li>Compute count = total / block and tail = total % block.</li>
+                <li>Set used partitions and internal waste to zero.</li>
+                <li>Read each process size. If size &gt; block, report TOO_LARGE.</li>
+                <li>Otherwise, if used = count, report NO_PARTITION.</li>
+                <li>Otherwise allocate one partition, increase used and add block - size to waste.</li>
+                <li>Print internal waste, count - used unused partitions and tail; stop.</li>
+            </ol>
+            <h3>4. Source code</h3>
+            <pre><code>/* Standalone C11 teaching simulator. Input formats: README.md. */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;errno.h&gt;
+
+/* Read bounded integer tokens; reject malformed or out-of-range input. */
+static int read_int(const char *label, int low, int high) {
+    char token[64], *end;
+    long value;
+    fprintf(stderr, &quot;%s [%d..%d]: &quot;, label, low, high);
+    if (scanf(&quot;%63s&quot;, token) != 1) {
+        fprintf(stderr, &quot;Missing input.\n&quot;); exit(EXIT_FAILURE);
+    }
+    errno = 0;
+    value = strtol(token, &amp;end, 10);
+    if (errno || *end || value &lt; low || value &gt; high) {
+        fprintf(stderr, &quot;Invalid input: %s\n&quot;, token);
+        exit(EXIT_FAILURE);
+    }
+    return (int)value;
+}
+
+/* Equal fixed partitions; no freeing; unused tail is reported separately. */
+int main(void) {
+    int total = read_int(&quot;Total memory&quot;, 1, 1000000);
+    int block = read_int(&quot;Partition size&quot;, 1, total);
+    int n = read_int(&quot;Process count&quot;, 1, 100);
+    int count = total / block, tail = total % block, used = 0, waste = 0;
+    printf(&quot;PARTITIONS %d TAIL %d\n&quot;, count, tail);
+    puts(&quot;PID REQUEST RESULT INTERNAL_WASTE&quot;);
+    for (int i = 0; i &lt; n; ++i) {
+        int size = read_int(&quot;Request&quot;, 1, 1000000);
+        if (size &gt; block) printf(&quot;P%d %d TOO_LARGE -\n&quot;, i+1, size);
+        else if (used == count) printf(&quot;P%d %d NO_PARTITION -\n&quot;, i+1, size);
+        else {
+            ++used; waste += block-size;
+            printf(&quot;P%d %d ALLOCATED %d\n&quot;, i+1, size, block-size);
+        }
+    }
+    printf(&quot;INTERNAL_WASTE %d UNUSED_PARTITIONS %d TAIL %d\n&quot;, waste, count-used, tail);
+    return 0;
+}
+</code></pre>
+            <h3>5. Input</h3>
+            <p>Total memory, partition size, n, then n process sizes.</p>
+            <pre>1000
+300
+5
+275 400 290 293 100
+</pre>
+            <h3>6. Output</h3>
+            <p>Exact stdout; interactive prompts omitted. RUN = process, start, end. RT = response time.</p>
+            <pre>PARTITIONS 3 TAIL 100
+PID REQUEST RESULT INTERNAL_WASTE
+P1 275 ALLOCATED 25
+P2 400 TOO_LARGE -
+P3 290 ALLOCATED 10
+P4 293 ALLOCATED 7
+P5 100 NO_PARTITION -
+INTERNAL_WASTE 42 UNUSED_PARTITIONS 0 TAIL 100
+</pre>
+            <h3>Worked explanation</h3>
+            <p>1000/300 gives 3 whole partitions and a tail of 100. P1, P3 and P4 occupy those partitions. Internal
+                waste = 25 + 10 + 7 = 42. P2 is too large; P5 arrives after all partitions are used.</p>
+            <h3>Viva preparation</h3>
+            <details class="qa">
+                <summary>What is internal fragmentation?</summary>
+                <p>Unused space inside an allocated partition: block size minus process size.</p>
+            </details>
+            <details class="qa">
+                <summary>Must fixed partitions be equal?</summary>
+                <p>No. MFT may use unequal fixed partitions; this program uses equal ones.</p>
+            </details>
+            <details class="qa">
+                <summary>Why can allocation fail with free memory?</summary>
+                <p>A process must fit one partition; it cannot combine several partitions in this model.</p>
+            </details>
+            <details class="qa">
+                <summary>What limits resident processes?</summary>
+                <p>The number of partitions, with one process per partition.</p>
+            </details>
+            <details class="qa">
+                <summary>Is an unused partition internal waste?</summary>
+                <p>No. It is unallocated memory, not slack inside an allocation.</p>
+            </details>
+            <details class="qa">
+                <summary>What does % calculate?</summary>
+                <p>The remainder after forming whole fixed partitions.</p>
+            </details>
+            <details class="qa">
+                <summary>Is tail memory internal fragmentation?</summary>
+                <p>No. It is outside the formed partitions and is reported separately.</p>
+            </details>
+            <details class="qa">
+                <summary>Does the program release partitions?</summary>
+                <p>No. It models admission only; a full simulator must track termination and reuse.</p>
+            </details>
+        </article>
+        <article id="mvt"><span class="eyebrow">PRACTICAL 05</span>
+            <h2>MVT Memory Management</h2>
+            <h3>1. Project name</h3>
+            <p>Implementation of MVT Memory Management using C</p>
+            <h3>2. Description</h3>
+            <p>Simulate Multiprogramming with a Variable Number of Tasks using a simple single free-memory pool.
+                Allocate exactly the requested amount when it fits. This accounting model does not simulate holes,
+                deallocation or compaction.</p>
+            <h3>3. Algorithm</h3>
+            <ol>
+                <li>Start; read total available memory and process count.</li>
+                <li>Set remaining = total.</li>
+                <li>For each request, compare size with remaining.</li>
+                <li>If size &lt;= remaining, allocate and subtract size from remaining.</li>
+                <li>Otherwise report NOT_ALLOCATED; continue to later requests.</li>
+                <li>Print allocated memory = total - remaining and remaining free memory; stop.</li>
+            </ol>
+            <h3>4. Source code</h3>
+            <pre><code>/* Standalone C11 teaching simulator. Input formats: README.md. */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;errno.h&gt;
+
+/* Read bounded integer tokens; reject malformed or out-of-range input. */
+static int read_int(const char *label, int low, int high) {
+    char token[64], *end;
+    long value;
+    fprintf(stderr, &quot;%s [%d..%d]: &quot;, label, low, high);
+    if (scanf(&quot;%63s&quot;, token) != 1) {
+        fprintf(stderr, &quot;Missing input.\n&quot;); exit(EXIT_FAILURE);
+    }
+    errno = 0;
+    value = strtol(token, &amp;end, 10);
+    if (errno || *end || value &lt; low || value &gt; high) {
+        fprintf(stderr, &quot;Invalid input: %s\n&quot;, token);
+        exit(EXIT_FAILURE);
+    }
+    return (int)value;
+}
+
+/* Simplified variable-size allocation from ONE free pool, no deallocation.
+   This is a single-pool model, not a fragmented hole list.
+   A failed request does not stop later requests. */
+int main(void) {
+    int total = read_int(&quot;Total memory&quot;, 1, 1000000), remaining = total;
+    int n = read_int(&quot;Process count&quot;, 1, 100);
+    puts(&quot;PID REQUEST RESULT FREE_REMAINING&quot;);
+    for (int i = 0; i &lt; n; ++i) {
+        int size = read_int(&quot;Request&quot;, 1, 1000000);
+        if (size &lt;= remaining) {
+            remaining -= size;
+            printf(&quot;P%d %d ALLOCATED %d\n&quot;, i+1, size, remaining);
+        } else printf(&quot;P%d %d NOT_ALLOCATED %d\n&quot;, i+1, size, remaining);
+    }
+    printf(&quot;ALLOCATED %d FREE %d\n&quot;, total-remaining, remaining);
+    return 0;
+}
+</code></pre>
+            <h3>5. Input</h3>
+            <p>Total memory, n, then n process sizes.</p>
+            <pre>1000
+4
+400 275 550 200
+</pre>
+            <h3>6. Output</h3>
+            <p>Exact stdout; interactive prompts omitted. RUN = process, start, end. RT = response time.</p>
+            <pre>PID REQUEST RESULT FREE_REMAINING
+P1 400 ALLOCATED 600
+P2 275 ALLOCATED 325
+P3 550 NOT_ALLOCATED 325
+P4 200 ALLOCATED 125
+ALLOCATED 875 FREE 125
+</pre>
+            <h3>Worked explanation</h3>
+            <p>After P1 and P2, 325 units remain. P3 requests 550 and fails. P4 requests 200 and succeeds. Allocated
+                memory = 875; free memory = 125. A failed request does not consume memory.</p>
+            <h3>Viva preparation</h3>
+            <details class="qa">
+                <summary>How does MVT differ from MFT?</summary>
+                <p>MVT sizes allocations to requests; MFT uses predetermined partitions.</p>
+            </details>
+            <details class="qa">
+                <summary>Does ideal exact-size MVT have internal waste?</summary>
+                <p>No partition-size waste; real systems can have alignment and metadata overhead.</p>
+            </details>
+            <details class="qa">
+                <summary>What is external fragmentation?</summary>
+                <p>Free space is split into holes so no single hole satisfies a contiguous request even if the total
+                    free space is enough.</p>
+            </details>
+            <details class="qa">
+                <summary>Is all remaining memory external fragmentation?</summary>
+                <p>No. A single free region is not evidence of fragmentation.</p>
+            </details>
+            <details class="qa">
+                <summary>Does this program demonstrate scattered holes?</summary>
+                <p>No. A single remaining counter cannot describe hole locations or sizes.</p>
+            </details>
+            <details class="qa">
+                <summary>What is compaction?</summary>
+                <p>Relocating allocated regions together to combine separated free holes.</p>
+            </details>
+            <details class="qa">
+                <summary>Why continue after a failed request?</summary>
+                <p>A later smaller process may fit the remaining space.</p>
+            </details>
+            <details class="qa">
+                <summary>What does a full MVT simulator need?</summary>
+                <p>Allocated-region and free-hole lists, a placement policy, deallocation and adjacent-hole merging.</p>
+            </details>
+        </article>
+        <article id="viva">
+            <h2>Common viva</h2>
+            <details class="qa">
+                <summary>What is an operating system?</summary>
+                <p>System software that manages hardware resources and provides services to applications.</p>
+            </details>
+            <details class="qa">
+                <summary>What is a process?</summary>
+                <p>A program in execution, including its state and resources.</p>
+            </details>
+            <details class="qa">
+                <summary>What is the ready queue?</summary>
+                <p>Processes ready to execute but waiting for CPU time.</p>
+            </details>
+            <details class="qa">
+                <summary>What is CPU scheduling?</summary>
+                <p>Selecting a ready process to run on the CPU.</p>
+            </details>
+            <details class="qa">
+                <summary>What is burst time?</summary>
+                <p>CPU execution time needed by a process for a burst.</p>
+            </details>
+            <details class="qa">
+                <summary>What is turnaround time?</summary>
+                <p>Time from arrival until completion: TAT = CT - AT.</p>
+            </details>
+            <details class="qa">
+                <summary>What is waiting time?</summary>
+                <p>Total ready-queue waiting. In the single-burst model, WT = TAT - BT.</p>
+            </details>
+            <details class="qa">
+                <summary>What is response time?</summary>
+                <p>First CPU start time minus arrival time.</p>
+            </details>
+            <details class="qa">
+                <summary>Why use double totals?</summary>
+                <p>Dividing a double total by n retains a fractional average.</p>
+            </details>
+            <details class="qa">
+                <summary>Do these programs change the real OS?</summary>
+                <p>No. They simulate decisions and memory accounting.</p>
+            </details>
+            <details class="qa">
+                <summary>What is multiprogramming?</summary>
+                <p>Keeping multiple programs in memory so another can run when one waits.</p>
+            </details>
+            <details class="qa">
+                <summary>What is a context switch?</summary>
+                <p>Saving one execution context and restoring another; it takes time in real systems.</p>
+            </details>
+            <details class="qa">
+                <summary>What does read_int do?</summary>
+                <p>It reads one integer, validates its range and exits on invalid or missing input.</p>
+            </details>
+            <details class="qa">
+                <summary>Why are array indices zero-based?</summary>
+                <p>C arrays start at zero; printing index + 1 gives familiar process labels.</p>
+            </details>
+        </article>
+    </main>
+    <footer>OS incourse preparation / Five-topic edition. C11 simulations; all scheduling arrivals are zero.</footer>
+    <script>const input = document.querySelector('#search'), items = [...document.querySelectorAll('.qa')], count = document.querySelector('#count'); function search() { const q = input.value.trim().toLowerCase(); let n = 0; items.forEach(x => { const match = x.textContent.toLowerCase().includes(q); x.hidden = !match; if (match) n++; x.open = Boolean(q) && match }); count.textContent = n + ' of ' + items.length + ' viva answers shown' } input.addEventListener('input', search); search();</script>
+</body>
+
+</html>
